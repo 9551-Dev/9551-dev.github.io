@@ -402,14 +402,14 @@ p.ebnf-symbol {
 }
 
 /* Limit maximum width of body */
-@media only screen and (min-width: 80em) {
+@media only screen and (min-width: 50) {
   body {
-    max-width: 60em;
+    max-width: 40em;
   }
 }
 
 /* Center body on wide screens, pop out sidebars */
-@media only screen and (min-width: 100em) {
+@media only screen and (min-width: 800em) {
   body {
     margin-left: auto;
     margin-right: auto;
