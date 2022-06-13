@@ -409,7 +409,7 @@ p.ebnf-symbol {
 }
 
 /* Center body on wide screens, pop out sidebars */
-@media only screen and (min-width: 800em) {
+@media only screen and (min-width: 80em) {
   body {
     margin-left: auto;
     margin-right: auto;
