@@ -94,10 +94,9 @@ span.annotation {
   font-family: Fira, Arial, Geneva, sans-serif;
 }
 
-
 #container {
   position: relative;
-  padding: 1em;
+  padding: 50px;
   background-color: #222222;
 }
 
@@ -168,8 +167,9 @@ h2 {
   font-weight: normal;
   font-size: 1.5em;
   padding: 0.25em;
-  background-color: #5000FF;
-  border-radius: 0.25em;
+  background-color: #5050DD;
+  color: #FFFFFF;
+  border-radius: 0em;
   border: 1px solid #A0A0A0;
 }
 
@@ -359,7 +359,7 @@ span.module-ext:before {
   }
   #container {
     border: solid #A0A0A0 1px;
-    border-radius: 1em;
+    border-radius: 0em;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   }
 }
@@ -481,7 +481,7 @@ p.ebnf-symbol {
 
 table.module_list,
 table.function_list {
-  border: 1px solid #CCCCCC;
+  border: 5px solid #445AA4;
   border-collapse: collapse;
 }
 

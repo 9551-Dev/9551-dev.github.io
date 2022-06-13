@@ -34,17 +34,16 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
 </ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/setup.html">setup</a></li>
-  <li><strong>GuiH.API</strong></li>
+  <li><a href="../modules/GuiH.API.html">GuiH.API</a></li>
   <li><a href="../modules/GuiH.MAIN_UI.html">GuiH.MAIN_UI</a></li>
   <li><a href="../modules/guide_index.html">guide_index</a></li>
-  <li><a href="../modules/GuiH.manipulators.html">GuiH.manipulators</a></li>
+  <li><strong>GuiH.manipulators</strong></li>
   <li><a href="../modules/object_index.html">object_index</a></li>
   <li><a href="../modules/modules.html">modules</a></li>
   <li><a href="../modules/presets.html">presets</a></li>
@@ -85,37 +84,45 @@
 
 <div id="content">
 
-<h1>Module <code>GuiH.API</code></h1>
-<p>The Main module</p>
+<h1>Module <code>GuiH.manipulators</code></h1>
+<p>Manipulators used for copying cutting and pasting objects</p>
 <p></p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#GuiH.new">GuiH.new (terminal[, event_offset_x[, event_offset_y]])</a></td>
-	<td class="summary">Make a new Gui object with the given terminal/window
- and optionaly event offset</td>
+	<td class="name" nowrap><a href="#object.kill">object.kill ()</a></td>
+	<td class="summary">compleatly kills/removes an object</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#GuiH.create_gui">GuiH.create_gui ()</a></td>
-	<td class="summary">Alias for GuiH.new</td>
+	<td class="name" nowrap><a href="#object.get_position">object.get_position ()</a></td>
+	<td class="summary">returns the positioning data of an object if it has any</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#GuiH.load_texture">GuiH.load_texture (path)</a></td>
-	<td class="summary">Used for loading basic textures
- similiar to the nimg format</td>
+	<td class="name" nowrap><a href="#object.replicate">object.replicate (new_name)</a></td>
+	<td class="summary">makes a copy of the object with a new name</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#GuiH.convert_event">GuiH.convert_event (event)</a></td>
-	<td class="summary">Processes an event into a more usable format</td>
+	<td class="name" nowrap><a href="#object.isolate">object.isolate ()</a></td>
+	<td class="summary">makes an isolated copy object wihnout adding it to the gui</td>
 	</tr>
-</table>
-<h2><a href="#Tables">Tables</a></h2>
-<table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#GuiH.apis">GuiH.apis</a></td>
-	<td class="summary">All of the additional GuiH apis loaded</td>
+	<td class="name" nowrap><a href="#object.cut">object.cut ()</a></td>
+	<td class="summary">removes the object from the gui and gives you a handle to manipulate it</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#put_in_handle.parse">put_in_handle.parse ([name])</a></td>
+	<td class="summary">puts the object into the gui under the same or a new name</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#put_in_handle.get">put_in_handle.get ()</a></td>
+	<td class="summary">returns a reference to the object in memory
+ so you can modify it wihnout inserting it into the gui</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#put_in_handle.clear">put_in_handle.clear ()</a></td>
+	<td class="summary">compleatly destroys the saved object</td>
 	</tr>
 </table>
 
@@ -127,146 +134,171 @@
 
     <dl class="function">
     <dt>
-    <a name = "GuiH.new"></a>
-    <strong>GuiH.new (terminal[, event_offset_x[, event_offset_y]])</strong>
+    <a name = "object.kill"></a>
+    <strong>object.kill ()</strong>
     </dt>
     <dd>
-    Make a new Gui object with the given terminal/window
- and optionaly event offset
+    compleatly kills/removes an object
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        whether was this operation successful or not
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "object.get_position"></a>
+    <strong>object.get_position ()</strong>
+    </dt>
+    <dd>
+    returns the positioning data of an object if it has any
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        positioning data of the object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "object.replicate"></a>
+    <strong>object.replicate (new_name)</strong>
+    </dt>
+    <dd>
+    makes a copy of the object with a new name
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">terminal</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         term/window object
+        <li><span class="parameter">new_name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         new name for the duplicate object
         </li>
-        <li><span class="parameter">event_offset_x</span>
-            <span class="types"><span class="type">number</span></span>
-         sets the horizontal offset of all events
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">GuiH.object</span></span>
+        returns the duplicate object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "object.isolate"></a>
+    <strong>object.isolate ()</strong>
+    </dt>
+    <dd>
+    makes an isolated copy object wihnout adding it to the gui
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">put_in_handle</span></span>
+        a handle used to work with the isolated object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "object.cut"></a>
+    <strong>object.cut ()</strong>
+    </dt>
+    <dd>
+    removes the object from the gui and gives you a handle to manipulate it
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">put_in_handle</span></span>
+        a handle used to work with the isolated object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "put_in_handle.parse"></a>
+    <strong>put_in_handle.parse ([name])</strong>
+    </dt>
+    <dd>
+    puts the object into the gui under the same or a new name
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         optional new name for the object
          (<em>optional</em>)
         </li>
-        <li><span class="parameter">event_offset_y</span>
-            <span class="types"><span class="type">number</span></span>
-         sets the vertical offset of all events
-         (<em>optional</em>)
-        </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        GuiH.MAIN_UI
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> GuiH = <span class="global">require</span>(<span class="string">"GuiH"</span>)
-<span class="keyword">local</span> gui = GuiH.new(term.current())
-<span class="global">print</span>(gui)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "GuiH.create_gui"></a>
-    <strong>GuiH.create_gui ()</strong>
-    </dt>
-    <dd>
-    Alias for GuiH.new
-
-
-
-
-
-    <h3>See also:</h3>
-    <ul>
-         <a href="../modules/GuiH.API.html#GuiH.new">GuiH.new</a>
-    </ul>
-
-
-</dd>
-    <dt>
-    <a name = "GuiH.load_texture"></a>
-    <strong>GuiH.load_texture (path)</strong>
-    </dt>
-    <dd>
-    Used for loading basic textures
- similiar to the nimg format
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">path</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string/table</a></span>
-         Path to the texture or the texture data in a table
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        GuiH.texture
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> GuiH = <span class="global">require</span>(<span class="string">"GuiH"</span>)
-<span class="keyword">local</span> texture = GuiH.load_texture({})
-<span class="global">print</span>(texture)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "GuiH.convert_event"></a>
-    <strong>GuiH.convert_event (event)</strong>
-    </dt>
-    <dd>
-    Processes an event into a more usable format
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">event</span>
-         all of the events results unpacked
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        GuiH.event
+        refference to the object in the gui or false
     </ol>
 
 
 
 
 </dd>
-</dl>
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
-
-    <dl class="function">
     <dt>
-    <a name = "GuiH.apis"></a>
-    <strong>GuiH.apis</strong>
+    <a name = "put_in_handle.get"></a>
+    <strong>put_in_handle.get ()</strong>
     </dt>
     <dd>
-    All of the additional GuiH apis loaded
+    returns a reference to the object in memory
+ so you can modify it wihnout inserting it into the gui
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">object_reference</span></span>
+        the reference to the object upvalue
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "put_in_handle.clear"></a>
+    <strong>put_in_handle.clear ()</strong>
+    </dt>
+    <dd>
+    compleatly destroys the saved object
 
 
 
 
 
-    <h3>See also:</h3>
-    <ul>
-         <a href="../modules/modules.html#">modules</a>
-    </ul>
 
 
 </dd>
