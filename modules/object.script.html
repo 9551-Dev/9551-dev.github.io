@@ -31,6 +31,10 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Tables">Tables</a></li>
+</ul>
 
 
 <h2>Modules</h2>
@@ -49,7 +53,7 @@
   <li><a href="../modules/guih.lib.algox.html">guih.lib.algox</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
   <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
-  <li><strong>guih.lib.general</strong></li>
+  <li><a href="../modules/guih.lib.general.html">guih.lib.general</a></li>
   <li><a href="../modules/guih.lib.graphic.html">guih.lib.graphic</a></li>
   <li><a href="../modules/guih.lib.log.html">guih.lib.log</a></li>
   <li><a href="../modules/guih.lib.ppm.html">guih.lib.ppm</a></li>
@@ -69,7 +73,7 @@
   <li><a href="../modules/object.inputbox.html">object.inputbox</a></li>
   <li><a href="../modules/object.progressbar.html">object.progressbar</a></li>
   <li><a href="../modules/object.rectangle.html">object.rectangle</a></li>
-  <li><a href="../modules/object.script.html">object.script</a></li>
+  <li><strong>object.script</strong></li>
   <li><a href="../modules/object.scrollbox.html">object.scrollbox</a></li>
   <li><a href="../modules/object.switch.html">object.switch</a></li>
   <li><a href="../modules/object.text.html">object.text</a></li>
@@ -80,16 +84,55 @@
 
 <div id="content">
 
-<h1>Module <code>guih.lib.general</code></h1>
-<p>a lot of unrelated functions and generaly useful functions</p>
-<p></p>
+<h1>Module <code>object.script</code></h1>
+<p>Properties of the script object
+ most of these properties are optional !</p>
+<p> script is an object for implementing your own object
+ within code
+ it allows you to run code in any part of the update
+ process you want
+</p>
 
 
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#properties">properties</a></td>
+	<td class="summary">script OBJECT PROPERTIES</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "properties"></a>
+    <strong>properties</strong>
+    </dt>
+    <dd>
+    script OBJECT PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">code</span>
+         [function] a function that gets called on update. the function gets passed the object as an argument + the event
+        </li>
+        <li><span class="parameter">graphic</span>
+         [function] a function that gets run on draw. the function gets passed the object as an argument
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
