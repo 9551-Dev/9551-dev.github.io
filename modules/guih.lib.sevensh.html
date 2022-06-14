@@ -31,10 +31,6 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
-<h2>Contents</h2>
-<ul>
-<li><a href="#Functions">Functions</a></li>
-</ul>
 
 
 <h2>Modules</h2>
@@ -47,6 +43,9 @@
   <li><a href="../modules/object_index.html">object_index</a></li>
   <li><a href="../modules/modules.html">modules</a></li>
   <li><a href="../modules/presets.html">presets</a></li>
+  <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
+  <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
   <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
@@ -55,14 +54,11 @@
   <li><a href="../modules/guih.lib.log.html">guih.lib.log</a></li>
   <li><a href="../modules/guih.lib.ppm.html">guih.lib.ppm</a></li>
   <li><a href="../modules/guih.lib.pixelbox.html">guih.lib.pixelbox</a></li>
-  <li><a href="../modules/guih.lib.sevensh.html">guih.lib.sevensh</a></li>
+  <li><strong>guih.lib.sevensh</strong></li>
   <li><a href="../modules/guih.lib.termtools.html">guih.lib.termtools</a></li>
   <li><a href="../modules/guih.lib.text.html">guih.lib.text</a></li>
   <li><a href="../modules/guih.presets.rect.html">guih.presets.rect</a></li>
-  <li><strong>guih.presets.tex</strong></li>
-  <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
-  <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
-  <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
+  <li><a href="../modules/guih.presets.tex.html">guih.presets.tex</a></li>
   <li><a href="../modules/object_.html">object_</a></li>
   <li><a href="../modules/object_button.html">object_button</a></li>
   <li><a href="../modules/object_circle.html">object_circle</a></li>
@@ -84,108 +80,23 @@
 
 <div id="content">
 
-<h1>Module <code>guih.presets.tex</code></h1>
-<p>texture presets</p>
+<h1>Module <code>guih.lib.sevensh</code></h1>
+<p>Lib used for loading custom fonts and adding segmented displays</p>
 <p></p>
 
 
-<h2><a href="#Functions">Functions</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#preset.checker">preset.checker (...)</a></td>
-	<td class="summary">Makes a checkerboard texture with any amount of colors</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#preset.brick">preset.brick (color_between, brick_color)</a></td>
-	<td class="summary">Generates a tileable brick texture with 2 colors</td>
-	</tr>
-</table>
 
 <br/>
 <br/>
 
 
-    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "preset.checker"></a>
-    <strong>preset.checker (...)</strong>
-    </dt>
-    <dd>
-    Makes a checkerboard texture with any amount of colors
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">...</span>
-            <span class="types"><span class="type">number</span></span>
-         colors to make the texture from
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        guih.texture
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> GuiH = <span class="global">require</span>(<span class="string">"GuiH"</span>)
-<span class="keyword">local</span> texture = guih.presets.tex.checkerboard(colors.white,colors.black,colors.gray)
-<span class="global">print</span>(texture)</pre>
-    </ul>
-
-</dd>
-    <dt>
-    <a name = "preset.brick"></a>
-    <strong>preset.brick (color_between, brick_color)</strong>
-    </dt>
-    <dd>
-    Generates a tileable brick texture with 2 colors
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">color_between</span>
-            <span class="types"><span class="type">number</span></span>
-
-        </li>
-        <li><span class="parameter">brick_color</span>
-            <span class="types"><span class="type">number</span></span>
-
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        guih.texture
-    </ol>
-
-
-
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> GuiH = <span class="global">require</span>(<span class="string">"GuiH"</span>)
-<span class="keyword">local</span> texture = guih.presets.tex.brick(colors.brown,colors.orange)
-<span class="global">print</span>(texture)</pre>
-    </ul>
-
-</dd>
-</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-14 17:59:12 </i>
+<i style="float:right;">Last updated 2022-06-14 18:19:48 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
