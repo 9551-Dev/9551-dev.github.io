@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>GuiH documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>GuiH docs</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/setup.html">setup</a></li>
+  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><a href="../modules/guih.main_ui.html">guih.main_ui</a></li>
+  <li><a href="../modules/guide_index.html">guide_index</a></li>
+  <li><a href="../modules/guih.manipulators.html">guih.manipulators</a></li>
+  <li><a href="../modules/object_index.html">object_index</a></li>
+  <li><a href="../modules/modules.html">modules</a></li>
+  <li><a href="../modules/presets.html">presets</a></li>
+  <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
+  <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
+  <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
+  <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
+  <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
+  <li><a href="../modules/guih.lib.general.html">guih.lib.general</a></li>
+  <li><a href="../modules/guih.lib.graphic.html">guih.lib.graphic</a></li>
+  <li><a href="../modules/guih.lib.log.html">guih.lib.log</a></li>
+  <li><a href="../modules/guih.lib.ppm.html">guih.lib.ppm</a></li>
+  <li><a href="../modules/guih.lib.pixelbox.html">guih.lib.pixelbox</a></li>
+  <li><a href="../modules/guih.lib.sevensh.html">guih.lib.sevensh</a></li>
+  <li><a href="../modules/guih.lib.termtools.html">guih.lib.termtools</a></li>
+  <li><a href="../modules/guih.lib.text.html">guih.lib.text</a></li>
+  <li><a href="../modules/guih.presets.rect.html">guih.presets.rect</a></li>
+  <li><a href="../modules/guih.presets.tex.html">guih.presets.tex</a></li>
+  <li><a href="../modules/object_.html">object_</a></li>
+  <li><a href="../modules/object_button.html">object_button</a></li>
+  <li><a href="../modules/object_circle.html">object_circle</a></li>
+  <li><a href="../modules/object_ellipse.html">object_ellipse</a></li>
+  <li><a href="../modules/object_frame.html">object_frame</a></li>
+  <li><strong>guih.object_properties</strong></li>
+  <li><a href="../modules/object_group.html">object_group</a></li>
+  <li><a href="../modules/object_inputbox.html">object_inputbox</a></li>
+  <li><a href="../modules/object_progressbar.html">object_progressbar</a></li>
+  <li><a href="../modules/object_rectangle.html">object_rectangle</a></li>
+  <li><a href="../modules/object_script.html">object_script</a></li>
+  <li><a href="../modules/object_scrollbox.html">object_scrollbox</a></li>
+  <li><a href="../modules/object_switch.html">object_switch</a></li>
+  <li><a href="../modules/object_text.html">object_text</a></li>
+  <li><a href="../modules/object_triangle.html">object_triangle</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>guih.object_properties</code></h1>
+<p>here are shown properties that every object has.</p>
+<p>
+ most of these properties are optional !</p>
+
+
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#properties">properties</a></td>
+	<td class="summary">GENERIC OBJECT PROPERTIES</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "properties"></a>
+    <strong>properties</strong>
+    </dt>
+    <dd>
+    GENERIC OBJECT PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+         [string] the name of the object that can be used to access it later
+        </li>
+        <li><span class="parameter">visible</span>
+         [boolean] should the objects graphic.lua file get ran. in other words should the object get drawn
+        </li>
+        <li><span class="parameter">reactive</span>
+         [boolean] should this objects logic.lua file get ran. in other words should the object be responsive
+        </li>
+        <li><span class="parameter">react_to_events</span>
+         [table] a lookup table with the events that this object should respond to
+        </li>
+        <li><span class="parameter">btn</span>
+         [table] a look up table with all the mouse buttons this object should respond to (labeled with ids. so {false,true} will have it only respond to right click)
+        </li>
+        <li><span class="parameter">order</span>
+         [number] the general update order for this object
+        </li>
+        <li><span class="parameter">logic_order</span>
+         [number] the order for the logic.lua file to update. higher means later
+        </li>
+        <li><span class="parameter">graphic_order</span>
+         [number] the order for the graphic.lua file to update. lets say you want a button to be on top of a square. there are 2 solutions. you can make squares graphic_order lower or buttons graphic_order higher
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-06-14 18:19:48 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

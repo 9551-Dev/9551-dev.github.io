@@ -1,0 +1,1932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>GuiH documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>GuiH docs</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/setup.html">setup</a></li>
+  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><strong>guih.main_ui</strong></li>
+  <li><a href="../modules/guide_index.html">guide_index</a></li>
+  <li><a href="../modules/guih.manipulators.html">guih.manipulators</a></li>
+  <li><a href="../modules/object_index.html">object_index</a></li>
+  <li><a href="../modules/modules.html">modules</a></li>
+  <li><a href="../modules/presets.html">presets</a></li>
+  <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
+  <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
+  <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
+  <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
+  <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
+  <li><a href="../modules/guih.lib.general.html">guih.lib.general</a></li>
+  <li><a href="../modules/guih.lib.graphic.html">guih.lib.graphic</a></li>
+  <li><a href="../modules/guih.lib.log.html">guih.lib.log</a></li>
+  <li><a href="../modules/guih.lib.ppm.html">guih.lib.ppm</a></li>
+  <li><a href="../modules/guih.lib.pixelbox.html">guih.lib.pixelbox</a></li>
+  <li><a href="../modules/guih.lib.sevensh.html">guih.lib.sevensh</a></li>
+  <li><a href="../modules/guih.lib.termtools.html">guih.lib.termtools</a></li>
+  <li><a href="../modules/guih.lib.text.html">guih.lib.text</a></li>
+  <li><a href="../modules/guih.presets.rect.html">guih.presets.rect</a></li>
+  <li><a href="../modules/guih.presets.tex.html">guih.presets.tex</a></li>
+  <li><a href="../modules/object_.html">object_</a></li>
+  <li><a href="../modules/object_button.html">object_button</a></li>
+  <li><a href="../modules/object_circle.html">object_circle</a></li>
+  <li><a href="../modules/object_ellipse.html">object_ellipse</a></li>
+  <li><a href="../modules/object_frame.html">object_frame</a></li>
+  <li><a href="../modules/guih.object_properties.html">guih.object_properties</a></li>
+  <li><a href="../modules/object_group.html">object_group</a></li>
+  <li><a href="../modules/object_inputbox.html">object_inputbox</a></li>
+  <li><a href="../modules/object_progressbar.html">object_progressbar</a></li>
+  <li><a href="../modules/object_rectangle.html">object_rectangle</a></li>
+  <li><a href="../modules/object_script.html">object_script</a></li>
+  <li><a href="../modules/object_scrollbox.html">object_scrollbox</a></li>
+  <li><a href="../modules/object_switch.html">object_switch</a></li>
+  <li><a href="../modules/object_text.html">object_text</a></li>
+  <li><a href="../modules/object_triangle.html">object_triangle</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>guih.main_ui</code></h1>
+<p>The gui object itself and its manipulation functions</p>
+<p></p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.create">MAIN_UI.create ()</a></td>
+	<td class="summary">Alias for MAIN_UI.new</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.update">MAIN_UI.update (timeout[, visible[, is_child[, data[, block_logic[, block_graphic]]]]])</a></td>
+	<td class="summary">Internal function used for updating the gui.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log:dump">log:dump ()</a></td>
+	<td class="summary">processes and saves the current log into the GuiH/log.log file</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.log">MAIN_UI.log (message, log_type)</a></td>
+	<td class="summary">logs a message into the GuiH/log.log file</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#key.held">key.held (...)</a></td>
+	<td class="summary">checks for held keys
+ can have any amount of keys inputed for keybindings</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.async">MAIN_UI.async (f[, delay[, error_flag[, debug]]])</a></td>
+	<td class="summary">schedules a new asynchronous task in  the background</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.schedule">MAIN_UI.schedule (f, delay, error_flag, debug)</a></td>
+	<td class="summary">Alias for MAIN_UI.async</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.add_listener">MAIN_UI.add_listener (filter, f[, name[, debug]])</a></td>
+	<td class="summary">Makes a new event listener with a custom filter</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.cause_exeption">MAIN_UI.cause_exeption (err)</a></td>
+	<td class="summary">causes an error stopping the gui</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.error">MAIN_UI.error (err)</a></td>
+	<td class="summary">Alias for MAIN_UI.cause_exeption</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.is_held">MAIN_UI.is_held (...)</a></td>
+	<td class="summary">Alias for MAIN_UI.key.held</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.execute">MAIN_UI.execute ([runtime[, on_event[, before_draw[, after_draw]]]])</a></td>
+	<td class="summary">This is the main function that you will use to run your application
+ it provides you with 4 functions that it will run as it goes</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.run">MAIN_UI.run (runtime, on_event, before_draw, after_draw)</a></td>
+	<td class="summary">Alias for MAIN_UI.execute()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.clear">MAIN_UI.clear (debug)</a></td>
+	<td class="summary">removes all elements form the gui</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.load_texture">MAIN_UI.load_texture (path)</a></td>
+	<td class="summary">loads a basic .nimg texture or can be used to make texture improters</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.load_ppm_texture">MAIN_UI.load_ppm_texture (path)</a></td>
+	<td class="summary">loads a .ppm texture
+ such a texture can be exported from gimp in the raw mode and be displayed ingame</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.load_cimg_texture">MAIN_UI.load_cimg_texture (path)</a></td>
+	<td class="summary">loads a .cimg texture
+ .cimg is a space inneficient format made by compec</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.load_limg_texture">MAIN_UI.load_limg_texture (path)</a></td>
+	<td class="summary">loads a .limg texture
+ limg is a format made by Leveloper the developer of LevelOS
+ this loads the first frame in the image file and gives it to you</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.load_blbfor_texture">MAIN_UI.load_blbfor_texture (path)</a></td>
+	<td class="summary">loads a .bbf texture
+ blbfor aka Blit Byte Format is a compact format developed by me (9551Dev)
+ this loads the first frame in the image file and gives it to you</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.load_limg_animation">MAIN_UI.load_limg_animation (path)</a></td>
+	<td class="summary">loads a .limg texture
+ limg is a format made by Leveloper the developer of LevelOS
+ this loads the entire animation and returns a table with all the frames</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.load_blbfor_animation">MAIN_UI.load_blbfor_animation (path)</a></td>
+	<td class="summary">loads a .bbf texture
+ blbfor aka Blit Byte Format is a compact format developed by me (9551Dev)
+ this loads the entire animation and returns a table with all the frames</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.set_event_offset">MAIN_UI.set_event_offset ([horizontal[, vertical]])</a></td>
+	<td class="summary">Used for calibrating the gui by setting the event offset
+ this doesnt have to be used most of the time as the gui has
+ a build in calibration</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.get_blit">MAIN_UI.get_blit (line, start_x, end_x)</a></td>
+	<td class="summary">allows getting blit data from the screen in a line between 2 points</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.text">MAIN_UI.text (OBJECT_PROPERIES)</a></td>
+	<td class="summary">Used for making primite text objects that can then be inputed into more advanced objects
+ these are also objects and you can set their properties</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.kill">async_task.kill ()</a></td>
+	<td class="summary">kills the given thread</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.alive">async_task.alive ()</a></td>
+	<td class="summary">checks if the thread is alive</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.update">async_task.update (...)</a></td>
+	<td class="summary">Resumes the current thread no matter if paused or not with inputed event</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.step">async_task.step (...)</a></td>
+	<td class="summary">Alias for async_task.update()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.pause">async_task.pause ()</a></td>
+	<td class="summary">pauses the currently running thread</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.resume">async_task.resume ()</a></td>
+	<td class="summary">resumes a currently paused thread</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.get_error">async_task.get_error ()</a></td>
+	<td class="summary">returns the error that happened on this thread if any happened</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#async_task.set_running">async_task.set_running (state, debug)</a></td>
+	<td class="summary">sets the current thread to state depending on a boolean value</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event_listener.kill">event_listener.kill ()</a></td>
+	<td class="summary">kills the current event listener</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event_listener.pause">event_listener.pause ()</a></td>
+	<td class="summary">pauses the currently running event listener</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#event_listener.resume">event_listener.resume ()</a></td>
+	<td class="summary">resumes the currently paused event listener</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.term_object">MAIN_UI.term_object</a></td>
+	<td class="summary">The window this gui is attached to</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.term">MAIN_UI.term</a></td>
+	<td class="summary">Alias for MAIN_UI.term_object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.elements">MAIN_UI.elements</a></td>
+	<td class="summary">list of all the elements in the current gui following format MAIN_UI.elements.<object_type (button)>.<object_name (custom name/uuid4)></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.gui">MAIN_UI.gui</a></td>
+	<td class="summary">Alias for MAIN_UI.elements</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.task_routine">MAIN_UI.task_routine</a></td>
+	<td class="summary">a list of all currently running asynchronous tasks indexed by an uuid4</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.paused_task_routine">MAIN_UI.paused_task_routine</a></td>
+	<td class="summary">a list of all currently pasued asynchronous tasks indexed by an uuid4</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.held_keys">MAIN_UI.held_keys</a></td>
+	<td class="summary">a lookup table of all currently held keys (used internally)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.event_listeners">MAIN_UI.event_listeners</a></td>
+	<td class="summary">list of all currently active event listeners</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.paused_listeners">MAIN_UI.paused_listeners</a></td>
+	<td class="summary">list of all currently paused event listeners</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.texture_cache">MAIN_UI.texture_cache</a></td>
+	<td class="summary">a list of already drawn textures used to accelerate redrawing to the same positions masively
+ the table folors this format cache[texture.id] = {tex_data,args={last_draw_arguments}}
+ note that every texture has only 1 place in memory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.new">MAIN_UI.new</a></td>
+	<td class="summary">table with all the functions for creating new objects in the UI
+ for reference of what Properites what object needs and what objects are avaible visit <a href="../modules/object_index.html#">object_index</a></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text_object_properties">text_object_properties</a></td>
+	<td class="summary">a list of values for creating a primitive text object</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.visible">MAIN_UI.visible</a></td>
+	<td class="summary">sets if the current gui should be visible</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.id">MAIN_UI.id</a></td>
+	<td class="summary">special uuid4 identifier for this gui</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.update_delay">MAIN_UI.update_delay</a></td>
+	<td class="summary">the rate the UI should update the grahics at.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log.error">log.error</a></td>
+	<td class="summary">Error Log type used by the log function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log.warn">log.warn</a></td>
+	<td class="summary">Error Log type used by the log function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log.fatal">log.fatal</a></td>
+	<td class="summary">Error Log type used by the log function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log.success">log.success</a></td>
+	<td class="summary">Error Log type used by the log function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log.message">log.message</a></td>
+	<td class="summary">Error Log type used by the log function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log.update">log.update</a></td>
+	<td class="summary">Error Log type used by the log function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log.info">log.info</a></td>
+	<td class="summary">Error Log type used by the log function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.width">MAIN_UI.width</a></td>
+	<td class="summary">the current width of the gui terminal object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.height">MAIN_UI.height</a></td>
+	<td class="summary">the current height of the gui terminal object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.w">MAIN_UI.w</a></td>
+	<td class="summary">alias for MAIN_UI.width</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.h">MAIN_UI.h</a></td>
+	<td class="summary">alias for MAIN_UI.height</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.background">MAIN_UI.background</a></td>
+	<td class="summary">the background color for this gui object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.cls">MAIN_UI.cls</a></td>
+	<td class="summary">sets if the gui should be cleared every frame.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.debug">MAIN_UI.debug</a></td>
+	<td class="summary">Enables all additional debug logs to be shown
+ which is useful for  debbugging</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.event_offset_x">MAIN_UI.event_offset_x</a></td>
+	<td class="summary">horizontal offset of all events used for calibration of the gui</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.event_offset_y">MAIN_UI.event_offset_y</a></td>
+	<td class="summary">vertical offset of all events used for calibration of the gui</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.last_error">MAIN_UI.last_error</a></td>
+	<td class="summary">the last error that gui.execute has caught</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.monitor">MAIN_UI.monitor</a></td>
+	<td class="summary">the type of terminal or a monitor used by the gui
+ if gui is made on an terminal it will be term_object
+ if its on a monitor it will be the monitors name</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MAIN_UI.create"></a>
+    <strong>MAIN_UI.create ()</strong>
+    </dt>
+    <dd>
+    Alias for MAIN_UI.new
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.update"></a>
+    <strong>MAIN_UI.update (timeout[, visible[, is_child[, data[, block_logic[, block_graphic]]]]])</strong>
+    </dt>
+    <dd>
+    Internal function used for updating the gui.  I do no reccomend touching this
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">timeout</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">visible</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">is_child</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">data</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         data passed from the previous run. used for reccursive updating of child objects
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">block_logic</span>
+            <span class="types"><span class="type">boolean</span></span>
+         sets if the updater should update the states of elements
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">block_graphic</span>
+            <span class="types"><span class="type">boolean</span></span>
+         sets if the updater should update the graphics on the screen
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "log:dump"></a>
+    <strong>log:dump ()</strong>
+    </dt>
+    <dd>
+    processes and saves the current log into the GuiH/log.log file
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        resulting log
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.log"></a>
+    <strong>MAIN_UI.log (message, log_type)</strong>
+    </dt>
+    <dd>
+    logs a message into the GuiH/log.log file
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         message to get written into the log file
+        </li>
+        <li><span class="parameter">log_type</span>
+            <span class="types"><span class="type">number</span></span>
+         type to use. these can be got by doing MAIN_UI.log.<type> (ex. error)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "key.held"></a>
+    <strong>key.held (...)</strong>
+    </dt>
+    <dd>
+    checks for held keys
+ can have any amount of keys inputed for keybindings
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+            <span class="types"><span class="type">number</span></span>
+         keys to check for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        are_pressed returns true if all the current keys are pressed down</li>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        are_held returns true if all the keys have been pressed down for at least 1 second</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.async"></a>
+    <strong>MAIN_UI.async (f[, delay[, error_flag[, debug]]])</strong>
+    </dt>
+    <dd>
+    schedules a new asynchronous task in  the background
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">f</span>
+            <span class="types"><span class="type">function</span></span>
+         the function to run asynchronously
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of time in seconds to wait before starting up this task
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">error_flag</span>
+            <span class="types"><span class="type">boolean</span></span>
+         should an exeption happen if this task errors
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">debug</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enables useful things like error and state logging
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">guih.SCHEDULED_THREAD</span></span>
+        bunch of functions you can use to pause/kill/revive and manipulate this thread
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.schedule"></a>
+    <strong>MAIN_UI.schedule (f, delay, error_flag, debug)</strong>
+    </dt>
+    <dd>
+    Alias for MAIN_UI.async
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">f</span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+
+        </li>
+        <li><span class="parameter">error_flag</span>
+
+        </li>
+        <li><span class="parameter">debug</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.async">MAIN_UI.async</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.add_listener"></a>
+    <strong>MAIN_UI.add_listener (filter, f[, name[, debug]])</strong>
+    </dt>
+    <dd>
+    Makes a new event listener with a custom filter
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">filter</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string/table</a></span>
+         the filter used for this event listener
+        </li>
+        <li><span class="parameter">f</span>
+            <span class="types"><span class="type">function</span></span>
+         function triggered by the event_listener
+        </li>
+        <li><span class="parameter">name</span>
+         allows you to select a custom name for the listener
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">debug</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enables a bunch of logs that might be useful
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">guih.EVENT_LISTENER</span></span>
+        bunch of useful functions you can use to pause/kill/revive and manipulate this listener
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.cause_exeption"></a>
+    <strong>MAIN_UI.cause_exeption (err)</strong>
+    </dt>
+    <dd>
+    causes an error stopping the gui
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">err</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the error to cause
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.error"></a>
+    <strong>MAIN_UI.error (err)</strong>
+    </dt>
+    <dd>
+    Alias for MAIN_UI.cause_exeption
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">err</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.cause_exeption">MAIN_UI.cause_exeption</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.is_held"></a>
+    <strong>MAIN_UI.is_held (...)</strong>
+    </dt>
+    <dd>
+    Alias for MAIN_UI.key.held
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#key.held">key.held</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.execute"></a>
+    <strong>MAIN_UI.execute ([runtime[, on_event[, before_draw[, after_draw]]]])</strong>
+    </dt>
+    <dd>
+    This is the main function that you will use to run your application
+ it provides you with 4 functions that it will run as it goes
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">runtime</span>
+            <span class="types"><span class="type">function</span></span>
+         as long as this function runs the gui will run too. you can use it to add custom code to your gui wihnout using scripts but putting it in the main loop itself
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">on_event</span>
+            <span class="types"><span class="type">function</span></span>
+         this function gets ran when an event happens that updates the gui. it gets passed the GUI_WINDOW,EVENT
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">before_draw</span>
+            <span class="types"><span class="type">function</span></span>
+         this function gets called before the gui gets drawn so you can use it for some update code. it gets passed only the GUI_WINDOW
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">after_draw</span>
+            <span class="types"><span class="type">function</span></span>
+         this function gets called after the gui gets drawn so you can use it to overlay your own things on top of the gui
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        the error that caused the gui to stop. you can use error(MAIN_UI.execute(),0) to get normal error messages
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.run"></a>
+    <strong>MAIN_UI.run (runtime, on_event, before_draw, after_draw)</strong>
+    </dt>
+    <dd>
+    Alias for MAIN_UI.execute()
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">runtime</span>
+
+        </li>
+        <li><span class="parameter">on_event</span>
+
+        </li>
+        <li><span class="parameter">before_draw</span>
+
+        </li>
+        <li><span class="parameter">after_draw</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.execute">MAIN_UI.execute</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.clear"></a>
+    <strong>MAIN_UI.clear (debug)</strong>
+    </dt>
+    <dd>
+    removes all elements form the gui
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">debug</span>
+            <span class="types"><span class="type">boolean</span></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.load_texture"></a>
+    <strong>MAIN_UI.load_texture (path)</strong>
+    </dt>
+    <dd>
+    loads a basic .nimg texture or can be used to make texture improters
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.api.html#guih.load_texture">guih.api.load_texture</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.load_ppm_texture"></a>
+    <strong>MAIN_UI.load_ppm_texture (path)</strong>
+    </dt>
+    <dd>
+    loads a .ppm texture
+ such a texture can be exported from gimp in the raw mode and be displayed ingame
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the image file
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">guih.texture</span></span>
+        the loaded texture
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.load_cimg_texture"></a>
+    <strong>MAIN_UI.load_cimg_texture (path)</strong>
+    </dt>
+    <dd>
+    loads a .cimg texture
+ .cimg is a space inneficient format made by compec
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the image file
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">guih.texture</span></span>
+        the loaded texture
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.load_limg_texture"></a>
+    <strong>MAIN_UI.load_limg_texture (path)</strong>
+    </dt>
+    <dd>
+    loads a .limg texture
+ limg is a format made by Leveloper the developer of LevelOS
+ this loads the first frame in the image file and gives it to you
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the image file
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">guih.texture</span></span>
+        the loaded texture</li>
+        <li>
+           <span class="types"><span class="type">guih.texture_array</span></span>
+        all of the images in the file put in a table</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.load_blbfor_texture"></a>
+    <strong>MAIN_UI.load_blbfor_texture (path)</strong>
+    </dt>
+    <dd>
+    loads a .bbf texture
+ blbfor aka Blit Byte Format is a compact format developed by me (9551Dev)
+ this loads the first frame in the image file and gives it to you
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the image file
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">guih.texture</span></span>
+        the loaded texture</li>
+        <li>
+           <span class="types"><span class="type">guih.texture_array</span></span>
+        all of the images in the file put in a table</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.load_limg_animation"></a>
+    <strong>MAIN_UI.load_limg_animation (path)</strong>
+    </dt>
+    <dd>
+    loads a .limg texture
+ limg is a format made by Leveloper the developer of LevelOS
+ this loads the entire animation and returns a table with all the frames
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the image file
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">guih.texture_array</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.load_blbfor_animation"></a>
+    <strong>MAIN_UI.load_blbfor_animation (path)</strong>
+    </dt>
+    <dd>
+    loads a .bbf texture
+ blbfor aka Blit Byte Format is a compact format developed by me (9551Dev)
+ this loads the entire animation and returns a table with all the frames
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the image file
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">guih.texture_array</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.set_event_offset"></a>
+    <strong>MAIN_UI.set_event_offset ([horizontal[, vertical]])</strong>
+    </dt>
+    <dd>
+    Used for calibrating the gui by setting the event offset
+ this doesnt have to be used most of the time as the gui has
+ a build in calibration
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">horizontal</span>
+            <span class="types"><span class="type">number</span></span>
+         the x axis offset
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">vertical</span>
+            <span class="types"><span class="type">number</span></span>
+         the y axis offset
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.get_blit"></a>
+    <strong>MAIN_UI.get_blit (line, start_x, end_x)</strong>
+    </dt>
+    <dd>
+    allows getting blit data from the screen in a line between 2 points
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">line</span>
+            <span class="types"><span class="type">number</span></span>
+         the line to get  the blit data on
+        </li>
+        <li><span class="parameter">start_x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x to start getting the blit from
+        </li>
+        <li><span class="parameter">end_x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x to stop getting the blit from
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        characters</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        text color</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        background color</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.text"></a>
+    <strong>MAIN_UI.text (OBJECT_PROPERIES)</strong>
+    </dt>
+    <dd>
+    Used for making primite text objects that can then be inputed into more advanced objects
+ these are also objects and you can set their properties
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">OBJECT_PROPERIES</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the properties to create text with
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">guih.primitive.text</span></span>
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#text_object_properties">text_object_properties</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "async_task.kill"></a>
+    <strong>async_task.kill ()</strong>
+    </dt>
+    <dd>
+    kills the given thread
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true/nil returns true of successful
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "async_task.alive"></a>
+    <strong>async_task.alive ()</strong>
+    </dt>
+    <dd>
+    checks if the thread is alive
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        the state of the thread
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "async_task.update"></a>
+    <strong>async_task.update (...)</strong>
+    </dt>
+    <dd>
+    Resumes the current thread no matter if paused or not with inputed event
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         Event data. the same as with os.queueEvent(...)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        was the task updated successfuly</li>
+        <li>
+           <span class="types"><span class="type">boolean</span></span>
+        was the thread resumed correctly</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        possible error if the thread died on the resume (in that case the second return will be false)</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "async_task.step"></a>
+    <strong>async_task.step (...)</strong>
+    </dt>
+    <dd>
+    Alias for async_task.update()
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#async_task.update">async_task.update</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "async_task.pause"></a>
+    <strong>async_task.pause ()</strong>
+    </dt>
+    <dd>
+    pauses the currently running thread
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        was the task paused successfuly
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "async_task.resume"></a>
+    <strong>async_task.resume ()</strong>
+    </dt>
+    <dd>
+    resumes a currently paused thread
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        was the task resumed successfuly
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "async_task.get_error"></a>
+    <strong>async_task.get_error ()</strong>
+    </dt>
+    <dd>
+    returns the error that happened on this thread if any happened
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        error message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "async_task.set_running"></a>
+    <strong>async_task.set_running (state, debug)</strong>
+    </dt>
+    <dd>
+    sets the current thread to state depending on a boolean value
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">boolean</span></span>
+         selects if you want to pause or resume the current thread
+        </li>
+        <li><span class="parameter">debug</span>
+            <span class="types"><span class="type">boolean</span></span>
+         enables bunch of logs useful for debugging purposes
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event_listener.kill"></a>
+    <strong>event_listener.kill ()</strong>
+    </dt>
+    <dd>
+    kills the current event listener
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event_listener.pause"></a>
+    <strong>event_listener.pause ()</strong>
+    </dt>
+    <dd>
+    pauses the currently running event listener
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "event_listener.resume"></a>
+    <strong>event_listener.resume ()</strong>
+    </dt>
+    <dd>
+    resumes the currently paused event listener
+
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MAIN_UI.term_object"></a>
+    <strong>MAIN_UI.term_object</strong>
+    </dt>
+    <dd>
+    The window this gui is attached to
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.term"></a>
+    <strong>MAIN_UI.term</strong>
+    </dt>
+    <dd>
+    Alias for MAIN_UI.term_object
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.term_object">MAIN_UI.term_object</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.elements"></a>
+    <strong>MAIN_UI.elements</strong>
+    </dt>
+    <dd>
+    list of all the elements in the current gui following format MAIN_UI.elements.<object_type (button)>.<object_name (custom name/uuid4)>
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.gui"></a>
+    <strong>MAIN_UI.gui</strong>
+    </dt>
+    <dd>
+    Alias for MAIN_UI.elements
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.elements">MAIN_UI.elements</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.task_routine"></a>
+    <strong>MAIN_UI.task_routine</strong>
+    </dt>
+    <dd>
+    a list of all currently running asynchronous tasks indexed by an uuid4
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.paused_task_routine"></a>
+    <strong>MAIN_UI.paused_task_routine</strong>
+    </dt>
+    <dd>
+    a list of all currently pasued asynchronous tasks indexed by an uuid4
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.held_keys"></a>
+    <strong>MAIN_UI.held_keys</strong>
+    </dt>
+    <dd>
+    a lookup table of all currently held keys (used internally)
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.event_listeners"></a>
+    <strong>MAIN_UI.event_listeners</strong>
+    </dt>
+    <dd>
+    list of all currently active event listeners
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.paused_listeners"></a>
+    <strong>MAIN_UI.paused_listeners</strong>
+    </dt>
+    <dd>
+    list of all currently paused event listeners
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.texture_cache"></a>
+    <strong>MAIN_UI.texture_cache</strong>
+    </dt>
+    <dd>
+    a list of already drawn textures used to accelerate redrawing to the same positions masively
+ the table folors this format cache[texture.id] = {tex_data,args={last_draw_arguments}}
+ note that every texture has only 1 place in memory.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.new"></a>
+    <strong>MAIN_UI.new</strong>
+    </dt>
+    <dd>
+    table with all the functions for creating new objects in the UI
+ for reference of what Properites what object needs and what objects are avaible visit <a href="../modules/object_index.html#">object_index</a>
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "text_object_properties"></a>
+    <strong>text_object_properties</strong>
+    </dt>
+    <dd>
+    a list of values for creating a primitive text object
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+
+        </li>
+        <li><span class="parameter">x</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">y</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">centered</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">offset_x</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">offset_y</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">blit</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">transparent</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">bg</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">fg</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">width</span>
+
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">height</span>
+
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MAIN_UI.visible"></a>
+    <strong>MAIN_UI.visible</strong>
+    </dt>
+    <dd>
+    sets if the current gui should be visible
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.id"></a>
+    <strong>MAIN_UI.id</strong>
+    </dt>
+    <dd>
+    special uuid4 identifier for this gui
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.update_delay"></a>
+    <strong>MAIN_UI.update_delay</strong>
+    </dt>
+    <dd>
+    the rate the UI should update the grahics at.  default: 0.05
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "log.error"></a>
+    <strong>log.error</strong>
+    </dt>
+    <dd>
+    Error Log type used by the log function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.log">MAIN_UI.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log.warn"></a>
+    <strong>log.warn</strong>
+    </dt>
+    <dd>
+    Error Log type used by the log function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.log">MAIN_UI.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log.fatal"></a>
+    <strong>log.fatal</strong>
+    </dt>
+    <dd>
+    Error Log type used by the log function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.log">MAIN_UI.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log.success"></a>
+    <strong>log.success</strong>
+    </dt>
+    <dd>
+    Error Log type used by the log function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.log">MAIN_UI.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log.message"></a>
+    <strong>log.message</strong>
+    </dt>
+    <dd>
+    Error Log type used by the log function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.log">MAIN_UI.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log.update"></a>
+    <strong>log.update</strong>
+    </dt>
+    <dd>
+    Error Log type used by the log function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.log">MAIN_UI.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log.info"></a>
+    <strong>log.info</strong>
+    </dt>
+    <dd>
+    Error Log type used by the log function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.log">MAIN_UI.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.width"></a>
+    <strong>MAIN_UI.width</strong>
+    </dt>
+    <dd>
+    the current width of the gui terminal object
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.height"></a>
+    <strong>MAIN_UI.height</strong>
+    </dt>
+    <dd>
+    the current height of the gui terminal object
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.w"></a>
+    <strong>MAIN_UI.w</strong>
+    </dt>
+    <dd>
+    alias for MAIN_UI.width
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.width">MAIN_UI.width</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.h"></a>
+    <strong>MAIN_UI.h</strong>
+    </dt>
+    <dd>
+    alias for MAIN_UI.height
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#MAIN_UI.height">MAIN_UI.height</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.background"></a>
+    <strong>MAIN_UI.background</strong>
+    </dt>
+    <dd>
+    the background color for this gui object.  used for clearing when updating the gui
+ defaults to the current terminal color or black
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.cls"></a>
+    <strong>MAIN_UI.cls</strong>
+    </dt>
+    <dd>
+    sets if the gui should be cleared every frame.  this is already done for the main gui no matter the value
+ this value only makes effect on child GUI's and their elements
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.debug"></a>
+    <strong>MAIN_UI.debug</strong>
+    </dt>
+    <dd>
+    Enables all additional debug logs to be shown
+ which is useful for  debbugging
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.event_offset_x"></a>
+    <strong>MAIN_UI.event_offset_x</strong>
+    </dt>
+    <dd>
+    horizontal offset of all events used for calibration of the gui
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.event_offset_y"></a>
+    <strong>MAIN_UI.event_offset_y</strong>
+    </dt>
+    <dd>
+    vertical offset of all events used for calibration of the gui
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.last_error"></a>
+    <strong>MAIN_UI.last_error</strong>
+    </dt>
+    <dd>
+    the last error that gui.execute has caught
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.monitor"></a>
+    <strong>MAIN_UI.monitor</strong>
+    </dt>
+    <dd>
+    the type of terminal or a monitor used by the gui
+ if gui is made on an terminal it will be term_object
+ if its on a monitor it will be the monitors name
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2022-06-14 18:19:48 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
