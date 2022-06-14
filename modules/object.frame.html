@@ -31,6 +31,10 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Tables">Tables</a></li>
+</ul>
 
 
 <h2>Modules</h2>
@@ -46,7 +50,7 @@
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
   <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
-  <li><a href="../modules/guih.lib.algox.html">guih.lib.algox</a></li>
+  <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
   <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
   <li><a href="../modules/guih.lib.general.html">guih.lib.general</a></li>
@@ -81,22 +85,152 @@
 <div id="content">
 
 <h1>Module <code>object.frame</code></h1>
-<p>The frame object Properties</p>
-<p></p>
+<p>Properties of the frame object
+ most of these properties are optional !</p>
+<p> a frame is a special type of gui object/window that can be dragged around with your mouse
+ you can also use it for creating thing such as draggers but that might be bit overkill to use a window for that
+</p>
 
 
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#properties">properties</a></td>
+	<td class="summary">frame OBJECT CREATION PROPERTIES</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#read_properties">read_properties</a></td>
+	<td class="summary">frame OBJECT READ PROPERTIES</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#dragger">dragger</a></td>
+	<td class="summary">dragger table properties</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "properties"></a>
+    <strong>properties</strong>
+    </dt>
+    <dd>
+    frame OBJECT CREATION PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         [number] the starting x position of the frame
+        </li>
+        <li><span class="parameter">y</span>
+         [number] the starting y position of the frame
+        </li>
+        <li><span class="parameter">width</span>
+         [number] the starting width of the object
+        </li>
+        <li><span class="parameter">height</span>
+         [number] the starting height of the object
+        </li>
+        <li><span class="parameter">dragger</span>
+         [table] definition of the box that the window can be dragged by
+        </li>
+        <li><span class="parameter">dragable</span>
+         [boolean] sets whether the window can be dragged by the user or not
+        </li>
+        <li><span class="parameter">on_move</span>
+         [function] gets called when the window gets moved. gets passed the object and the event as an argument. if returns true the window wont get moved. allowing for custom move handling
+        </li>
+        <li><span class="parameter">on_select</span>
+         [function] gets called when the window gets selected. gets passed the object and the event as an argument.
+        </li>
+        <li><span class="parameter">on_any</span>
+         [function] gets called every time the frame updates in any non-graphic way
+        </li>
+        <li><span class="parameter">on_graphic</span>
+         [function] gets ran every time the graphic.lua file of the frame gets ran. allowing for custom well timed updates of graphics inside the frame
+        </li>
+        <li><span class="parameter">on_deselect</span>
+         [function] gets called when the window gets dropped. gets passed the object and the event as an argument.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "read_properties"></a>
+    <strong>read_properties</strong>
+    </dt>
+    <dd>
+    frame OBJECT READ PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">dragged</span>
+         [boolean] gets set to true when the window is currently dragged
+        </li>
+        <li><span class="parameter">last_click</span>
+         [table] table of 2 coordinates storing the last move position of the frame. used internaly
+        </li>
+        <li><span class="parameter">window</span>
+         [table] the standard window object for this frame
+        </li>
+        <li><span class="parameter">child</span>
+         [<a href="../modules/guih.main_ui.html#">guih.main_ui</a>] the child gui for this frame
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "dragger"></a>
+    <strong>dragger</strong>
+    </dt>
+    <dd>
+    dragger table properties
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         [number] the x position of the dragger
+        </li>
+        <li><span class="parameter">y</span>
+         [number] the y position of the dragger
+        </li>
+        <li><span class="parameter">width</span>
+         [number] the width of the dragger
+        </li>
+        <li><span class="parameter">height</span>
+         [number] the height of the dragger
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-14 19:20:53 </i>
+<i style="float:right;">Last updated 2022-06-14 22:02:09 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

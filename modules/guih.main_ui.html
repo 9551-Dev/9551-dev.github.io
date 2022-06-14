@@ -52,7 +52,7 @@
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
   <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
-  <li><a href="../modules/guih.lib.algox.html">guih.lib.algox</a></li>
+  <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
   <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
   <li><a href="../modules/guih.lib.general.html">guih.lib.general</a></li>
@@ -196,9 +196,9 @@
 	<td class="summary">allows getting blit data from the screen in a line between 2 points</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#MAIN_UI.text">MAIN_UI.text (OBJECT_PROPERIES)</a></td>
+	<td class="name" nowrap><a href="#MAIN_UI.text">MAIN_UI.text (OBJECT_PROPERTIES)</a></td>
 	<td class="summary">Used for making primite text objects that can then be inputed into more advanced objects
- these are also objects and you can set their properties</td>
+ these are also objects and you can set their properties.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#async_task.kill">async_task.kill ()</a></td>
@@ -297,6 +297,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#MAIN_UI.create">MAIN_UI.create</a></td>
 	<td class="summary">Alias for MAIN_UI.new</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.api">MAIN_UI.api</a></td>
+	<td class="summary">Alias for GuiH.apis</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MAIN_UI.preset">MAIN_UI.preset</a></td>
+	<td class="summary">Alias for GuiH.presets</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#text_object_properties">text_object_properties</a></td>
@@ -1079,16 +1087,16 @@
 </dd>
     <dt>
     <a name = "MAIN_UI.text"></a>
-    <strong>MAIN_UI.text (OBJECT_PROPERIES)</strong>
+    <strong>MAIN_UI.text (OBJECT_PROPERTIES)</strong>
     </dt>
     <dd>
     Used for making primite text objects that can then be inputed into more advanced objects
- these are also objects and you can set their properties
+ these are also objects and you can set their properties.  which you can find at <a href="../modules/guih.main_ui.html#text_object_properties">text_object_properties</a>
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">OBJECT_PROPERIES</span>
+        <li><span class="parameter">OBJECT_PROPERTIES</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
          the properties to create text with
         </li>
@@ -1498,6 +1506,10 @@
 
 
 
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/objects.html#">objects</a>
+    </ul>
 
 
 </dd>
@@ -1520,6 +1532,44 @@
 
 </dd>
     <dt>
+    <a name = "MAIN_UI.api"></a>
+    <strong>MAIN_UI.api</strong>
+    </dt>
+    <dd>
+    Alias for GuiH.apis
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <li><a href="../modules/guih.api.html#guih.apis">guih.api.apis</a></li>
+         <li><a href="../modules/modules.html#">modules</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MAIN_UI.preset"></a>
+    <strong>MAIN_UI.preset</strong>
+    </dt>
+    <dd>
+    Alias for GuiH.presets
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <li><a href="../modules/guih.api.html#guih.presets">guih.api.presets</a></li>
+         <li><a href="../modules/presets.html#">presets</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
     <a name = "text_object_properties"></a>
     <strong>text_object_properties</strong>
     </dt>
@@ -1533,47 +1583,47 @@
 
         </li>
         <li><span class="parameter">x</span>
-
+         the x positions to draw the text at
          (<em>optional</em>)
         </li>
         <li><span class="parameter">y</span>
-
+         the y positions to draw the text at
          (<em>optional</em>)
         </li>
         <li><span class="parameter">centered</span>
-
+         should the text be centered (default in the middle of the entire screen)
          (<em>optional</em>)
         </li>
         <li><span class="parameter">offset_x</span>
-
+         the x offset to draw the text at
          (<em>optional</em>)
         </li>
         <li><span class="parameter">offset_y</span>
-
+         the y offset to draw the text at
          (<em>optional</em>)
         </li>
         <li><span class="parameter">blit</span>
-
+         the blit data to draw the text with
          (<em>optional</em>)
         </li>
         <li><span class="parameter">transparent</span>
-
+         should the text have transparent background (default false)
          (<em>optional</em>)
         </li>
         <li><span class="parameter">bg</span>
-
+         the background color to draw the text with
          (<em>optional</em>)
         </li>
         <li><span class="parameter">fg</span>
-
+         the foreground color to draw the text with
          (<em>optional</em>)
         </li>
         <li><span class="parameter">width</span>
-
+         the width to center the text between. can be used to centering text within a box. default is fullscreen
          (<em>optional</em>)
         </li>
         <li><span class="parameter">height</span>
-
+         the height to center the text between. can be used to centering text within a box. default is fullscreen
          (<em>optional</em>)
         </li>
     </ul>
@@ -1929,7 +1979,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-14 19:20:53 </i>
+<i style="float:right;">Last updated 2022-06-14 22:02:09 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
