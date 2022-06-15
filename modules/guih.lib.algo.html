@@ -31,6 +31,10 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
 
 
 <h2>Modules</h2>
@@ -81,22 +85,197 @@
 <div id="content">
 
 <h1>Module <code>guih.lib.algo</code></h1>
-<p>Api used for shape drawing purposes</p>
-<p></p>
+<p>Library used for drawing shape and getting points in various shapes.</p>
+<p> mostly used for visual things</p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#lib.get_elipse_points">lib.get_elipse_points (horizontal_radius, vertical_radius, x, y, filled)</a></td>
+	<td class="summary">returns all pixels you need to draw an ellipse</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#lib.get_triangle_points">lib.get_triangle_points (p1, p2, p3)</a></td>
+	<td class="summary">returns all the pixels you need to draw a triangle</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#lib.get_triangle_outline_points">lib.get_triangle_outline_points (p1, p2, p3)</a></td>
+	<td class="summary">returns all the pixels you need to draw outline of an triangle</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#lib.get_line_points">lib.get_line_points (start_x, start_y, end_x, end_y)</a></td>
+	<td class="summary">returns all pixels you need to draw a line</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "lib.get_elipse_points"></a>
+    <strong>lib.get_elipse_points (horizontal_radius, vertical_radius, x, y, filled)</strong>
+    </dt>
+    <dd>
+    returns all pixels you need to draw an ellipse
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">horizontal_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         horizontal radius of the ellipse
+        </li>
+        <li><span class="parameter">vertical_radius</span>
+            <span class="types"><span class="type">number</span></span>
+         vertical radius of the ellipse
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         x coordinate of the center of the ellipse
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         y coordinate of the center of the ellipse
+        </li>
+        <li><span class="parameter">filled</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the ellipse should be filled or not
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        a table of all pixels you need to draw the ellipse
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "lib.get_triangle_points"></a>
+    <strong>lib.get_triangle_points (p1, p2, p3)</strong>
+    </dt>
+    <dd>
+    returns all the pixels you need to draw a triangle
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p1</span>
+            <span class="types"><span class="type">vector</span></span>
+         first point of the triangle
+        </li>
+        <li><span class="parameter">p2</span>
+            <span class="types"><span class="type">vector</span></span>
+         second point of the triangle
+        </li>
+        <li><span class="parameter">p3</span>
+            <span class="types"><span class="type">vector</span></span>
+         third point of the triangle
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        a table of all pixels you need to draw the triangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "lib.get_triangle_outline_points"></a>
+    <strong>lib.get_triangle_outline_points (p1, p2, p3)</strong>
+    </dt>
+    <dd>
+    returns all the pixels you need to draw outline of an triangle
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p1</span>
+            <span class="types"><span class="type">vector</span></span>
+         first point of the triangle
+        </li>
+        <li><span class="parameter">p2</span>
+            <span class="types"><span class="type">vector</span></span>
+         second point of the triangle
+        </li>
+        <li><span class="parameter">p3</span>
+            <span class="types"><span class="type">vector</span></span>
+         third point of the triangle
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        a table of all pixels you need to draw the triangle outline
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "lib.get_line_points"></a>
+    <strong>lib.get_line_points (start_x, start_y, end_x, end_y)</strong>
+    </dt>
+    <dd>
+    returns all pixels you need to draw a line
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start_x</span>
+            <span class="types"><span class="type">number</span></span>
+         x coordinate of the start of the line
+        </li>
+        <li><span class="parameter">start_y</span>
+            <span class="types"><span class="type">number</span></span>
+         y coordinate of the start of the line
+        </li>
+        <li><span class="parameter">end_x</span>
+            <span class="types"><span class="type">number</span></span>
+         x coordinate of the end of the line
+        </li>
+        <li><span class="parameter">end_y</span>
+            <span class="types"><span class="type">number</span></span>
+         y coordinate of the end of the line
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        a table of all pixels you need to draw the line
+    </ol>
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 20:36:23 </i>
+<i style="float:right;">Last updated 2022-06-15 20:50:49 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
