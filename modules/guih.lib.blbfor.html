@@ -31,6 +31,10 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
 
 
 <h2>Modules</h2>
@@ -59,6 +63,7 @@
   <li><a href="../modules/guih.lib.text.html">guih.lib.text</a></li>
   <li><a href="../modules/guih.presets.rect.html">guih.presets.rect</a></li>
   <li><a href="../modules/guih.presets.tex.html">guih.presets.tex</a></li>
+  <li><a href="../modules/object..html">object.</a></li>
   <li><a href="../modules/object.button.html">object.button</a></li>
   <li><a href="../modules/object.circle.html">object.circle</a></li>
   <li><a href="../modules/object.ellipse.html">object.ellipse</a></li>
@@ -81,22 +86,310 @@
 <div id="content">
 
 <h1>Module <code>guih.lib.blbfor</code></h1>
-<p>Used for manipulating .bbf images.</p>
-<p> (Blit Byte Format)</p>
+<p>An api used for reading/writing Blit Byte Format images.</p>
+<p> ".bbf"
+ note that this DOES NOT document the internal functions of the api
+ even tho they are accessible</p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#open">open (filename, mode, width, height, layers[, FG[, BG[, SYM[, meta]]]])</a></td>
+	<td class="summary">Opens a file for writing/reading.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#blit_read_handle:get_pixel">blit_read_handle:get_pixel (layer, x, y[, return_blit])</a></td>
+	<td class="summary">Reads a pixel from the image.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#blit_read_handle:get_line">blit_read_handle:get_line (layer, y)</a></td>
+	<td class="summary">Reads a line from the image.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#blit_write_handle:set_pixel">blit_write_handle:set_pixel (x, y, layer, SYM, FG, BG)</a></td>
+	<td class="summary">Writes a single pixel to the image.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#blit_write_handle:set_line">blit_write_handle:set_line (layer, y, line, FG, BG)</a></td>
+	<td class="summary">Writes an entire line of blit to the image.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#blit_write_handle:flush">blit_write_handle:flush ()</a></td>
+	<td class="summary">Flushes the image into its file</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#blit_write_handle:close">blit_write_handle:close ()</a></td>
+	<td class="summary">Closes the image and saves it into its file.</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "open"></a>
+    <strong>open (filename, mode, width, height, layers[, FG[, BG[, SYM[, meta]]]])</strong>
+    </dt>
+    <dd>
+    Opens a file for writing/reading.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">filename</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the name of the file to open
+        </li>
+        <li><span class="parameter">mode</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the mode to open the file in ("w" or "r")
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         the width of the image to write
+        </li>
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">number</span></span>
+         the height of the image to write
+        </li>
+        <li><span class="parameter">layers</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of layers to write
+        </li>
+        <li><span class="parameter">FG</span>
+            <span class="types"><span class="type">number</span></span>
+         the foreground color to fill the new image with
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">BG</span>
+            <span class="types"><span class="type">number</span></span>
+         the background color to fill the new image with
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">SYM</span>
+            <span class="types"><span class="type">number</span></span>
+         the symbol to fill the new image with
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">meta</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the custom metadata to save in the new image
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        blit_read_handle/blit_write_handle the handle to work with the file
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "blit_read_handle:get_pixel"></a>
+    <strong>blit_read_handle:get_pixel (layer, x, y[, return_blit])</strong>
+    </dt>
+    <dd>
+    Reads a pixel from the image.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">layer</span>
+            <span class="types"><span class="type">number</span></span>
+         the layer to read the pixel from
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x coordinate of the pixel
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y coordinate of the pixel
+        </li>
+        <li><span class="parameter">return_blit</span>
+            <span class="types"><span class="type">boolean</span></span>
+         should the pixel data be returned in the blit format
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        the symbol of the pixel</li>
+        <li>
+           <span class="types"><span class="type">number/string</span></span>
+        the foreground color of the pixel</li>
+        <li>
+           <span class="types"><span class="type">number/string</span></span>
+        the background color of the pixel</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "blit_read_handle:get_line"></a>
+    <strong>blit_read_handle:get_line (layer, y)</strong>
+    </dt>
+    <dd>
+    Reads a line from the image.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">layer</span>
+            <span class="types"><span class="type">number</span></span>
+         the layer to read the line from
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y coordinate of the line
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        the text of the line</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        the foreground color of the line (blit string)</li>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        the background color of the line (blit string)</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "blit_write_handle:set_pixel"></a>
+    <strong>blit_write_handle:set_pixel (x, y, layer, SYM, FG, BG)</strong>
+    </dt>
+    <dd>
+    Writes a single pixel to the image.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x coordinate of the pixel
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y coordinate of the pixel
+        </li>
+        <li><span class="parameter">layer</span>
+            <span class="types"><span class="type">number</span></span>
+         the layer to write the pixel on
+        </li>
+        <li><span class="parameter">SYM</span>
+            <span class="types"><span class="type">number</span></span>
+         the symbol of the pixel
+        </li>
+        <li><span class="parameter">FG</span>
+            <span class="types"><span class="type">number</span></span>
+         the foreground color of the pixel
+        </li>
+        <li><span class="parameter">BG</span>
+            <span class="types"><span class="type">number</span></span>
+         the background color of the pixel
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "blit_write_handle:set_line"></a>
+    <strong>blit_write_handle:set_line (layer, y, line, FG, BG)</strong>
+    </dt>
+    <dd>
+    Writes an entire line of blit to the image.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">layer</span>
+            <span class="types"><span class="type">number</span></span>
+         the layer to write the line on
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y coordinate of the line
+        </li>
+        <li><span class="parameter">line</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the text to write to that line
+        </li>
+        <li><span class="parameter">FG</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the foreground color of the line (blit string)
+        </li>
+        <li><span class="parameter">BG</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the background color of the line (blit string)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "blit_write_handle:flush"></a>
+    <strong>blit_write_handle:flush ()</strong>
+    </dt>
+    <dd>
+    Flushes the image into its file
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "blit_write_handle:close"></a>
+    <strong>blit_write_handle:close ()</strong>
+    </dt>
+    <dd>
+    Closes the image and saves it into its file.
+
+
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 20:50:49 </i>
+<i style="float:right;">Last updated 2022-06-15 21:46:52 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
