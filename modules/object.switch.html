@@ -31,6 +31,10 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Tables">Tables</a></li>
+</ul>
 
 
 <h2>Modules</h2>
@@ -45,7 +49,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
-  <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
+  <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
   <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
@@ -67,6 +71,7 @@
   <li><a href="../modules/guih.base_object_properties.html">guih.base_object_properties</a></li>
   <li><a href="../modules/object.group.html">object.group</a></li>
   <li><a href="../modules/object.inputbox.html">object.inputbox</a></li>
+  <li><a href="../modules/primitive.object.text.html">primitive.object.text</a></li>
   <li><a href="../modules/object.progressbar.html">object.progressbar</a></li>
   <li><a href="../modules/object.rectangle.html">object.rectangle</a></li>
   <li><a href="../modules/object.script.html">object.script</a></li>
@@ -81,22 +86,119 @@
 <div id="content">
 
 <h1>Module <code>object.switch</code></h1>
-<p>The switch object Properties</p>
-<p></p>
+<p>Properties of the switch object
+ most of these properties are optional !</p>
+<p> a switch a simple object that changes its state upon being clicked
+ while being simple it also has high graphic capabilities
+</p>
 
 
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#creation_properties">creation_properties</a></td>
+	<td class="summary">switch OBJECT CREATION PROPERTIES</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#read_properties">read_properties</a></td>
+	<td class="summary">switch OBJECT READ PROPERTIES</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "creation_properties"></a>
+    <strong>creation_properties</strong>
+    </dt>
+    <dd>
+    switch OBJECT CREATION PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         [number] the x position of the switch
+        </li>
+        <li><span class="parameter">y</span>
+         [number] the y position of the switch
+        </li>
+        <li><span class="parameter">width</span>
+         [number] the width of the switch
+        </li>
+        <li><span class="parameter">height</span>
+         [number] the height of the switch
+        </li>
+        <li><span class="parameter">text</span>
+         [<a href="../modules/guih.main_ui.html#MAIN_UI.text">guih.main_ui.text</a>] the text to put on the switch when its off
+        </li>
+        <li><span class="parameter">text_on</span>
+         [<a href="../modules/guih.main_ui.html#MAIN_UI.text">guih.main_ui.text</a>] the text to put on the switch when its on
+        </li>
+        <li><span class="parameter">background_color</span>
+         [number] the background_color color of the switch when the switch is off
+        </li>
+        <li><span class="parameter">background_color_on</span>
+         [number] the background_color color of the switch when the switch is on
+        </li>
+        <li><span class="parameter">text_color</span>
+         [number] the color of the symbols on the switch when the switch is off (not the actual "text")
+        </li>
+        <li><span class="parameter">text_color_on</span>
+         [number] the color of the symbols on the switch when the switch is on (not the actual "text")
+        </li>
+        <li><span class="parameter">symbol</span>
+         [string]  the symbol to fill the background of the switch with
+        </li>
+        <li><span class="parameter">tex</span>
+         [GuiH.texture] the texture to draw on the switch when its off
+        </li>
+        <li><span class="parameter">tex_on</span>
+         [GuiH.texture] the texture to draw on the switch when its on
+        </li>
+        <li><span class="parameter">on_change_state</span>
+         [function] the function that gets ran when the switch changes its state (gets passed the object and the event as an argument)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "read_properties"></a>
+    <strong>read_properties</strong>
+    </dt>
+    <dd>
+    switch OBJECT READ PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+         [boolean] the current state of the switch
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-14 22:06:10 </i>
+<i style="float:right;">Last updated 2022-06-15 20:29:26 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

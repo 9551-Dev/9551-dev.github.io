@@ -31,6 +31,10 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Tables">Tables</a></li>
+</ul>
 
 
 <h2>Modules</h2>
@@ -45,7 +49,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
-  <li><a href="../modules/guih.guide.graphic_system.html">guih.guide.graphic_system</a></li>
+  <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
   <li><a href="../modules/guih.lib.fuzzy_find.html">guih.lib.fuzzy_find</a></li>
@@ -67,6 +71,7 @@
   <li><a href="../modules/guih.base_object_properties.html">guih.base_object_properties</a></li>
   <li><a href="../modules/object.group.html">object.group</a></li>
   <li><strong>object.inputbox</strong></li>
+  <li><a href="../modules/primitive.object.text.html">primitive.object.text</a></li>
   <li><a href="../modules/object.progressbar.html">object.progressbar</a></li>
   <li><a href="../modules/object.rectangle.html">object.rectangle</a></li>
   <li><a href="../modules/object.script.html">object.script</a></li>
@@ -81,22 +86,185 @@
 <div id="content">
 
 <h1>Module <code>object.inputbox</code></h1>
-<p>The inputbox object Properties</p>
-<p></p>
+<p>Properties of the inputbox object
+ most of these properties are optional !</p>
+<p> an inputbox is a customizable text input
+ featuring features like scrolling,insert mode,pasting
+
+</p>
 
 
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#properties">properties</a></td>
+	<td class="summary">inputbox OBJECT CREATION PROPERTIES</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#read_properties">read_properties</a></td>
+	<td class="summary">inputboxs OBJECT READ PROPERTIES</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#autocompletion">autocompletion</a></td>
+	<td class="summary">autoc table properties</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "properties"></a>
+    <strong>properties</strong>
+    </dt>
+    <dd>
+    inputbox OBJECT CREATION PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         [number] the x position of the inputbox
+        </li>
+        <li><span class="parameter">y</span>
+         [number] the y position of the inputbox
+        </li>
+        <li><span class="parameter">width</span>
+         [number] the width of the inputbox
+        </li>
+        <li><span class="parameter">pattern</span>
+         [string] the pattern used for the input. lets say you only want numbers to be able to be inputed. then set pattern to "%d"
+        </li>
+        <li><span class="parameter">selected</span>
+         [boolean] sets if the input should be currently selected
+        </li>
+        <li><span class="parameter">cursor_pos</span>
+         [number] the position of the cursor in the inputbox
+        </li>
+        <li><span class="parameter">char_limit</span>
+         [number] the max characters that can be written into  the inputbox. defaulted to
+        </li>
+        <li><span class="parameter">background_color</span>
+         [number] the background color of the inputbox
+        </li>
+        <li><span class="parameter">text_color</span>
+         [number] the color of the text in the inputbox
+        </li>
+        <li><span class="parameter">space_symbol</span>
+         [string] the symbol to draw spaces with
+        </li>
+        <li><span class="parameter">background_symbol</span>
+         [string] the symbol to draw the background with
+        </li>
+        <li><span class="parameter">replace_char</span>
+         [string] can be used for showing diffirent chracters visualy. for example you can do "*" for passwords
+        </li>
+        <li><span class="parameter">ignore_tab</span>
+         [boolean] if true the tab key will be ignored for autocompletion. defaulted to false
+        </li>
+        <li><span class="parameter">on_change_select</span>
+         [function] a function that gets ran when the inputbox selection changes. gets passed self
+        </li>
+        <li><span class="parameter">on_change_input</span>
+         [function] a function that gets ran when the inputbox input changes. gets passed self and the change
+        </li>
+        <li><span class="parameter">on_enter</span>
+         [function] gets called when you press enter while  the inputbox is selected. gets passed self
+        </li>
+        <li><span class="parameter">autoc</span>
+         [table] a table of autocompletion options.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "read_properties"></a>
+    <strong>read_properties</strong>
+    </dt>
+    <dd>
+    inputboxs OBJECT READ PROPERTIES
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">input</span>
+         [string] the current text written in the inputbox
+        </li>
+        <li><span class="parameter">selected</span>
+         [boolean] tells whether the inputbox is selected or not
+        </li>
+        <li><span class="parameter">insert</span>
+         [boolean] tells whether the inputbox is in insert mode or not
+        </li>
+        <li><span class="parameter">ctrl</span>
+         [boolean] tells wheter ctrl key is currently held or not
+        </li>
+        <li><span class="parameter">shift</span>
+         [number] the visual offset to show the text with
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "autocompletion"></a>
+    <strong>autocompletion</strong>
+    </dt>
+    <dd>
+    autoc table properties
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">strings</span>
+         [table] a list of strings that the api will try to complete with every word
+        </li>
+        <li><span class="parameter">spec_strings</span>
+         [table] basicaly strings but word specific. if you want to have the first and second word only autocomplete Hello or World you can do {{"Hello","World"},{"Hello","world"}} the index of the strings table being the word count
+        </li>
+        <li><span class="parameter">bg</span>
+         [number] the background color of the autocompletion display
+        </li>
+        <li><span class="parameter">fg</span>
+         [number] the text color of the autocompletion display
+        </li>
+        <li><span class="parameter">current</span>
+         [string] the currently selected autocompletion suggestion
+          <em>readonly</em>
+        </li>
+        <li><span class="parameter">selected</span>
+         [number] the currently selected autocompletion suggestion
+          <em>readonly</em>
+        </li>
+        <li><span class="parameter">put_space</span>
+         [boolean] whether the autocompletion should put a space between each word autocompleted or not
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-14 22:06:10 </i>
+<i style="float:right;">Last updated 2022-06-15 20:29:26 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
