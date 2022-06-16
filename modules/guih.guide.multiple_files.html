@@ -31,10 +31,6 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
-<h2>Contents</h2>
-<ul>
-<li><a href="#Tables">Tables</a></li>
-</ul>
 
 
 <h2>Modules</h2>
@@ -49,7 +45,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
-  <li><a href="../modules/guih.guide.multiple_files.html">guih.guide.multiple_files</a></li>
+  <li><strong>guih.guide.multiple_files</strong></li>
   <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
@@ -75,7 +71,7 @@
   <li><a href="../modules/primitive.object.text.html">primitive.object.text</a></li>
   <li><a href="../modules/object.progressbar.html">object.progressbar</a></li>
   <li><a href="../modules/object.rectangle.html">object.rectangle</a></li>
-  <li><strong>object.script</strong></li>
+  <li><a href="../modules/object.script.html">object.script</a></li>
   <li><a href="../modules/object.scrollbox.html">object.scrollbox</a></li>
   <li><a href="../modules/object.switch.html">object.switch</a></li>
   <li><a href="../modules/object.text.html">object.text</a></li>
@@ -86,55 +82,35 @@
 
 <div id="content">
 
-<h1>Module <code>object.script</code></h1>
-<p>Properties of the script object
- most of these properties are optional !</p>
-<p> script is an object for implementing your own object
- within code
- it allows you to run code in any part of the update
- process you want
+<h1>Module <code>guih.guide.multiple_files</code></h1>
+<p>Showcase on how to manage your gui into multiple files
+ to manage your ui in larger applications you may want to split your gui into several files
+ this is by far the best way to do it
+ you can also apply the knowledge from <a href="../modules/guih.guide.OOP.html#">guih.guide.OOP</a> here
+<p> what you wanna do is wrap your entire gui and all the definitions into a function.</p>
+<p>
+ this function will also take in the gui object to build this files ui on
+ so you can then easily place it into its own {object.group}
+ you then return this function so in your main file you can require it
+ and give it the gui that it will build the ui in
 </p>
-
-
-<h2><a href="#Tables">Tables</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#properties">properties</a></td>
-	<td class="summary">script OBJECT PROPERTIES</td>
-	</tr>
-</table>
-
-<br/>
-<br/>
-
-
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "properties"></a>
-    <strong>properties</strong>
-    </dt>
-    <dd>
-    script OBJECT PROPERTIES
-
-
-    <h3>Fields:</h3>
+    <h3>Usage:</h3>
     <ul>
-        <li><span class="parameter">code</span>
-         [function] a function that gets called on update. the function gets passed the object as an argument + the event
-        </li>
-        <li><span class="parameter">graphic</span>
-         [function] a function that gets run on draw. the function gets passed the object as an argument
-        </li>
+        <pre class="example">local function my_gui(gui)
+    -- you can use the gui object to create objects
+    -- you can also pack these the same way we do in @{guih.guide.OOP}
+    -- you can also use the @{guih.guide.accessing_gui_elements} guide to access the gui elements
+end
+return my_gui
+</pre>
     </ul>
 
 
 
+<br/>
+<br/>
 
 
-</dd>
-</dl>
 
 
 </div> <!-- id="content" -->

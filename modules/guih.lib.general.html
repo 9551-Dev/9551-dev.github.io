@@ -31,12 +31,17 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/setup.html">setup</a></li>
-  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><a href="../modules/guih.html">guih</a></li>
   <li><a href="../modules/guih.main_ui.html">guih.main_ui</a></li>
   <li><a href="../modules/guides.html">guides</a></li>
   <li><a href="../modules/objects.html">objects</a></li>
@@ -45,6 +50,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.multiple_files.html">guih.guide.multiple_files</a></li>
   <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
@@ -82,22 +88,471 @@
 <div id="content">
 
 <h1>Module <code>guih.lib.general</code></h1>
-<p>a lot of unrelated functions and generaly useful functions</p>
+<p>a lot of functions that are unrelated but useful functions</p>
 <p></p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#HSVToRGB">HSVToRGB (hue, sat, val)</a></td>
+	<td class="summary">converts HSV (Hue,Saturation,value) to RGB</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#uuid4">uuid4 ()</a></td>
+	<td class="summary">makes an uuid4 identifier from</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#precise_sleep">precise_sleep (time)</a></td>
+	<td class="summary">special version of sleep that uses epoch time
+ allows for incredibly precise sleep timing</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#piece_string">piece_string (str)</a></td>
+	<td class="summary">cuts string into individual characters and returns them in a table</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#create_blit_array">create_blit_array (count)</a></td>
+	<td class="summary">creates a table with empty blit tables</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.createNDarray">tables.createNDarray (dimensions[, original])</a></td>
+	<td class="summary">makes an multi dimensional array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.get_true_table_len">tables.get_true_table_len (tbl)</a></td>
+	<td class="summary">slowly (iteratevely) gets element count in an table</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.compare_table">tables.compare_table (tbl1, tbl2)</a></td>
+	<td class="summary">compares 2 tables by value</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.switchXYArray">tables.switchXYArray (map)</a></td>
+	<td class="summary">switches x,y values in an 2D map</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.create2Darray">tables.create2Darray ([map])</a></td>
+	<td class="summary">basically general.tables.createNDarray but with set dimensions to 2</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.create3Darray">tables.create3Darray ([map])</a></td>
+	<td class="summary">basically general.tables.createNDarray but with set dimensions to 3</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.iterate_order">tables.iterate_order (tbl)</a></td>
+	<td class="summary">an iterator function.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#tables.merge">tables.merge (...)</a></td>
+	<td class="summary">merges any amount of tables together</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#events_with_cords">events_with_cords</a></td>
+	<td class="summary">a look up table with events that contain cordinate data</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "HSVToRGB"></a>
+    <strong>HSVToRGB (hue, sat, val)</strong>
+    </dt>
+    <dd>
+    converts HSV (Hue,Saturation,value) to RGB
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">hue</span>
+            <span class="types"><span class="type">number</span></span>
+         hue
+        </li>
+        <li><span class="parameter">sat</span>
+            <span class="types"><span class="type">number</span></span>
+         saturation
+        </li>
+        <li><span class="parameter">val</span>
+            <span class="types"><span class="type">number</span></span>
+         value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        red</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        green</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        blue</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "uuid4"></a>
+    <strong>uuid4 ()</strong>
+    </dt>
+    <dd>
+    makes an uuid4 identifier from
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        uuid4
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "precise_sleep"></a>
+    <strong>precise_sleep (time)</strong>
+    </dt>
+    <dd>
+    special version of sleep that uses epoch time
+ allows for incredibly precise sleep timing
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">time</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of seconds to sleep
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "piece_string"></a>
+    <strong>piece_string (str)</strong>
+    </dt>
+    <dd>
+    cuts string into individual characters and returns them in a table
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the string to cut
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the table of character
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "create_blit_array"></a>
+    <strong>create_blit_array (count)</strong>
+    </dt>
+    <dd>
+    creates a table with empty blit tables
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">number</span></span>
+         the amount of blit values to create
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the table of blit value tables
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.createNDarray"></a>
+    <strong>tables.createNDarray (dimensions[, original])</strong>
+    </dt>
+    <dd>
+    makes an multi dimensional array.  used for storing 2D or any D maps
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dimensions</span>
+            <span class="types"><span class="type">number</span></span>
+         the amounts of dimensions to create in the array
+        </li>
+        <li><span class="parameter">original</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         allows attaching to an existing table
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the resulting table
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.get_true_table_len"></a>
+    <strong>tables.get_true_table_len (tbl)</strong>
+    </dt>
+    <dd>
+    slowly (iteratevely) gets element count in an table
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tbl</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the table to get the element count from
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the amount of elements in the table
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.compare_table"></a>
+    <strong>tables.compare_table (tbl1, tbl2)</strong>
+    </dt>
+    <dd>
+    compares 2 tables by value
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tbl1</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the first table to compare
+        </li>
+        <li><span class="parameter">tbl2</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the second table to compare
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true if the tables are the same
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.switchXYArray"></a>
+    <strong>tables.switchXYArray (map)</strong>
+    </dt>
+    <dd>
+    switches x,y values in an 2D map
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">map</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the map to switch the values in
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the switched map
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.create2Darray"></a>
+    <strong>tables.create2Darray ([map])</strong>
+    </dt>
+    <dd>
+    basically general.tables.createNDarray but with set dimensions to 2
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">map</span>
+         the map to attach to
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the resulting table
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.create3Darray"></a>
+    <strong>tables.create3Darray ([map])</strong>
+    </dt>
+    <dd>
+    basically general.tables.createNDarray but with set dimensions to 3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">map</span>
+         the map to attach to
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the resulting table
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.iterate_order"></a>
+    <strong>tables.iterate_order (tbl)</strong>
+    </dt>
+    <dd>
+    an iterator function.  merge between pairs and ipairs
+ iterates elements in order like ipairs does but doesnt stop on nils
+ only works on tables with number only indices
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tbl</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the table to iterate over
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">function</span></span>
+        the iterator function that can be used in an for loop
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "tables.merge"></a>
+    <strong>tables.merge (...)</strong>
+    </dt>
+    <dd>
+    merges any amount of tables together
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the tables to merge
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the merged table
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "events_with_cords"></a>
+    <strong>events_with_cords</strong>
+    </dt>
+    <dd>
+    a look up table with events that contain cordinate data
+
+
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 21:50:46 </i>
+<i style="float:right;">Last updated 2022-06-16 20:49:14 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

@@ -31,12 +31,18 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/setup.html">setup</a></li>
-  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><a href="../modules/guih.html">guih</a></li>
   <li><a href="../modules/guih.main_ui.html">guih.main_ui</a></li>
   <li><a href="../modules/guides.html">guides</a></li>
   <li><a href="../modules/objects.html">objects</a></li>
@@ -45,6 +51,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.multiple_files.html">guih.guide.multiple_files</a></li>
   <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
@@ -82,22 +89,317 @@
 <div id="content">
 
 <h1>Module <code>guih.lib.ppm</code></h1>
-<p>A kinda weird api used for reading .ppm images</p>
+<p>Api used for reading .ppm images that can be exported from gimp in raw mode.</p>
 <p></p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#luappm">luappm (path)</a></td>
+	<td class="summary">decodes image with the given path returning all the data</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.get_pixel">ppmimage.get_pixel (x, y)</a></td>
+	<td class="summary">reads a pixel from the image</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.get_palette">ppmimage.get_palette ()</a></td>
+	<td class="summary">returns all the diffirent color types from the image and their counts</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.data">ppmimage.data</a></td>
+	<td class="summary">the raw image data from the file</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.meta">ppmimage.meta</a></td>
+	<td class="summary">all of the metadata in a table</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.pixels">ppmimage.pixels</a></td>
+	<td class="summary">raw map of all the image data</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pixel">pixel</a></td>
+	<td class="summary">the pixel table properties</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#palette">palette</a></td>
+	<td class="summary">the palette table properties
+ it is a table of rgb color tables.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.pixels">ppmimage.pixels</a></td>
+	<td class="summary">pixel count in the image</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.width">ppmimage.width</a></td>
+	<td class="summary">the width of the image</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.height">ppmimage.height</a></td>
+	<td class="summary">the height of the image</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ppmimage.color_type">ppmimage.color_type</a></td>
+	<td class="summary">the color type in this image
+ 255 in most images</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "luappm"></a>
+    <strong>luappm (path)</strong>
+    </dt>
+    <dd>
+    decodes image with the given path returning all the data
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the image
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the decoded image (ppmimage)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ppmimage.get_pixel"></a>
+    <strong>ppmimage.get_pixel (x, y)</strong>
+    </dt>
+    <dd>
+    reads a pixel from the image
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the pixel
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the pixel
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the resulting pixel table. properties: <a href="../modules/guih.lib.ppm.html#pixel">pixel</a>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ppmimage.get_palette"></a>
+    <strong>ppmimage.get_palette ()</strong>
+    </dt>
+    <dd>
+    returns all the diffirent color types from the image and their counts
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the resulting palette table. properties: <a href="../modules/guih.lib.ppm.html#palette">palette</a>
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "ppmimage.data"></a>
+    <strong>ppmimage.data</strong>
+    </dt>
+    <dd>
+    the raw image data from the file
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ppmimage.meta"></a>
+    <strong>ppmimage.meta</strong>
+    </dt>
+    <dd>
+    all of the metadata in a table
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ppmimage.pixels"></a>
+    <strong>ppmimage.pixels</strong>
+    </dt>
+    <dd>
+    raw map of all the image data
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pixel"></a>
+    <strong>pixel</strong>
+    </dt>
+    <dd>
+    the pixel table properties
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+         the red color of the pixel
+        </li>
+        <li><span class="parameter">g</span>
+         the green color of the pixel
+        </li>
+        <li><span class="parameter">b</span>
+         the blue color of the pixel
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "palette"></a>
+    <strong>palette</strong>
+    </dt>
+    <dd>
+    the palette table properties
+ it is a table of rgb color tables.  sorted from most to least common with their counts included
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">commonness</span>
+         a single color of this palette
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "ppmimage.pixels"></a>
+    <strong>ppmimage.pixels</strong>
+    </dt>
+    <dd>
+    pixel count in the image
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ppmimage.width"></a>
+    <strong>ppmimage.width</strong>
+    </dt>
+    <dd>
+    the width of the image
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ppmimage.height"></a>
+    <strong>ppmimage.height</strong>
+    </dt>
+    <dd>
+    the height of the image
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ppmimage.color_type"></a>
+    <strong>ppmimage.color_type</strong>
+    </dt>
+    <dd>
+    the color type in this image
+ 255 in most images
+
+
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 21:50:46 </i>
+<i style="float:right;">Last updated 2022-06-16 20:49:14 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

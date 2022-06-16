@@ -31,12 +31,17 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/setup.html">setup</a></li>
-  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><a href="../modules/guih.html">guih</a></li>
   <li><a href="../modules/guih.main_ui.html">guih.main_ui</a></li>
   <li><a href="../modules/guides.html">guides</a></li>
   <li><a href="../modules/objects.html">objects</a></li>
@@ -45,6 +50,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.multiple_files.html">guih.guide.multiple_files</a></li>
   <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
@@ -86,18 +92,281 @@
 <p></p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#create_log">create_log (the[, title[, title_symbol]])</a></td>
+	<td class="summary">makes a new log in the desired terminal window</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object">log_object (message, type)</a></td>
+	<td class="summary">writes a new message to the log</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object:dump">log_object:dump (path)</a></td>
+	<td class="summary">dumps the log into a file</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#log_object.error">log_object.error</a></td>
+	<td class="summary">Error Log type used by the {log_object:log} function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object.warn">log_object.warn</a></td>
+	<td class="summary">Warn Log type used by the {log_object:log} function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object.fatal">log_object.fatal</a></td>
+	<td class="summary">Fatal Log type used by the {log_object:log} function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object.success">log_object.success</a></td>
+	<td class="summary">Success Log type used by the {log_object:log} function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object.message">log_object.message</a></td>
+	<td class="summary">Message Log type used by the {log_object:log} function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object.update">log_object.update</a></td>
+	<td class="summary">Update Log type used by the {log_object:log} function</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#log_object.info">log_object.info</a></td>
+	<td class="summary">Info Log type used by the {log_object:log} function</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "create_log"></a>
+    <strong>create_log (the[, title[, title_symbol]])</strong>
+    </dt>
+    <dd>
+    makes a new log in the desired terminal window
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">terminal</span></span>
+         terminal object to make the new log on
+        </li>
+        <li><span class="parameter">title</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the title to display on the log
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">title_symbol</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the background symbol to use for the title
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "log_object"></a>
+    <strong>log_object (message, type)</strong>
+    </dt>
+    <dd>
+    writes a new message to the log
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">message</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the message to write to the log
+        </li>
+        <li><span class="parameter">type</span>
+            <span class="types"><span class="type">number</span></span>
+         the log type to write the log with (sets the color and style.)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "log_object:dump"></a>
+    <strong>log_object:dump (path)</strong>
+    </dt>
+    <dd>
+    dumps the log into a file
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the path to the file to dump the log to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        the string written into the said file
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "log_object.error"></a>
+    <strong>log_object.error</strong>
+    </dt>
+    <dd>
+    Error Log type used by the {log_object:log} function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#log">main_ui.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log_object.warn"></a>
+    <strong>log_object.warn</strong>
+    </dt>
+    <dd>
+    Warn Log type used by the {log_object:log} function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#log">main_ui.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log_object.fatal"></a>
+    <strong>log_object.fatal</strong>
+    </dt>
+    <dd>
+    Fatal Log type used by the {log_object:log} function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#log">main_ui.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log_object.success"></a>
+    <strong>log_object.success</strong>
+    </dt>
+    <dd>
+    Success Log type used by the {log_object:log} function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#log">main_ui.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log_object.message"></a>
+    <strong>log_object.message</strong>
+    </dt>
+    <dd>
+    Message Log type used by the {log_object:log} function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#log">main_ui.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log_object.update"></a>
+    <strong>log_object.update</strong>
+    </dt>
+    <dd>
+    Update Log type used by the {log_object:log} function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#log">main_ui.log</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "log_object.info"></a>
+    <strong>log_object.info</strong>
+    </dt>
+    <dd>
+    Info Log type used by the {log_object:log} function
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/guih.main_ui.html#log">main_ui.log</a>
+    </ul>
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 21:50:46 </i>
+<i style="float:right;">Last updated 2022-06-16 20:49:14 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

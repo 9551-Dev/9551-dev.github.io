@@ -31,12 +31,16 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/setup.html">setup</a></li>
-  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><a href="../modules/guih.html">guih</a></li>
   <li><a href="../modules/guih.main_ui.html">guih.main_ui</a></li>
   <li><a href="../modules/guides.html">guides</a></li>
   <li><a href="../modules/objects.html">objects</a></li>
@@ -45,6 +49,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.multiple_files.html">guih.guide.multiple_files</a></li>
   <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
@@ -86,18 +91,286 @@
 <p></p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#create_display">create_display (terminal, x, y[, the[, font[, bg[, symbol[, fg]]]]])</a></td>
+	<td class="summary">makes a new segmented display</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:update">display:update ()</a></td>
+	<td class="summary">updates the display on the screeen to the current values</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:reposition">display:reposition (x, y)</a></td>
+	<td class="summary">repositions the display</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:set_background">display:set_background (bg)</a></td>
+	<td class="summary">sets a new background color to the display</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:set_color">display:set_color (fg)</a></td>
+	<td class="summary">sets a new foreground color to the display</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:set_symbol">display:set_symbol (symbol)</a></td>
+	<td class="summary">sets a new symbol to draw the display with</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:set_value">display:set_value (value)</a></td>
+	<td class="summary">sets a new value to the display</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:set_font">display:set_font (font)</a></td>
+	<td class="summary">changes the font of the display</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#display:set_term">display:set_term (terminal)</a></td>
+	<td class="summary">sets a new terminal to display the display on</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "create_display"></a>
+    <strong>create_display (terminal, x, y[, the[, font[, bg[, symbol[, fg]]]]])</strong>
+    </dt>
+    <dd>
+    makes a new segmented display
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">terminal</span>
+            <span class="types"><span class="type">terminal</span></span>
+         the terminal object to make the new display on
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the display
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the display
+        </li>
+        <li><span class="parameter">the</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string/number</a></span>
+         value to display from the fonts dictionary
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">font</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the font used for this display
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">bg</span>
+            <span class="types"><span class="type">number</span></span>
+         the background color of the display
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">symbol</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the symbol to draw the display with
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">fg</span>
+            <span class="types"><span class="type">number</span></span>
+         the foreground color of the display
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">display</span></span>
+        table with all the functions needed for interacting with the display
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:update"></a>
+    <strong>display:update ()</strong>
+    </dt>
+    <dd>
+    updates the display on the screeen to the current values
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:reposition"></a>
+    <strong>display:reposition (x, y)</strong>
+    </dt>
+    <dd>
+    repositions the display
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the new x position of the display
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the new y position of the display
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:set_background"></a>
+    <strong>display:set_background (bg)</strong>
+    </dt>
+    <dd>
+    sets a new background color to the display
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bg</span>
+            <span class="types"><span class="type">number</span></span>
+         the new background color
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:set_color"></a>
+    <strong>display:set_color (fg)</strong>
+    </dt>
+    <dd>
+    sets a new foreground color to the display
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fg</span>
+            <span class="types"><span class="type">number</span></span>
+         the new foreground color
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:set_symbol"></a>
+    <strong>display:set_symbol (symbol)</strong>
+    </dt>
+    <dd>
+    sets a new symbol to draw the display with
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">symbol</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the new symbol
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:set_value"></a>
+    <strong>display:set_value (value)</strong>
+    </dt>
+    <dd>
+    sets a new value to the display
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string/number</a></span>
+         the new value to display
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:set_font"></a>
+    <strong>display:set_font (font)</strong>
+    </dt>
+    <dd>
+    changes the font of the display
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">font</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         the new font to use
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "display:set_term"></a>
+    <strong>display:set_term (terminal)</strong>
+    </dt>
+    <dd>
+    sets a new terminal to display the display on
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">terminal</span>
+            <span class="types"><span class="type">terminal</span></span>
+         the new terminal to display the display on
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 21:50:46 </i>
+<i style="float:right;">Last updated 2022-06-16 20:49:14 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

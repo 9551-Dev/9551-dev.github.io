@@ -31,12 +31,17 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
+</ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/setup.html">setup</a></li>
-  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><a href="../modules/guih.html">guih</a></li>
   <li><a href="../modules/guih.main_ui.html">guih.main_ui</a></li>
   <li><a href="../modules/guides.html">guides</a></li>
   <li><a href="../modules/objects.html">objects</a></li>
@@ -45,6 +50,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.multiple_files.html">guih.guide.multiple_files</a></li>
   <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
@@ -86,18 +92,253 @@
 <p> used for drawing and image reading purposes.</p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#draw_box_tex">draw_box_tex (terminal, texture, x, y, width, height[, bg[, fg[, offsetx[, offsety[, cache]]]]])</a></td>
+	<td class="summary">draws a box from a given texture on the screen</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get_pixel">get_pixel (x, y, texture, fill_empty)</a></td>
+	<td class="summary">reads a pixel from an texture</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#build_drawing_char">build_drawing_char (tbl[, mode])</a></td>
+	<td class="summary">creates a drawing character out of a table with 6 color values</td>
+	</tr>
+</table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#pixel">pixel</a></td>
+	<td class="summary">the simple pixel table properties</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#to_color">to_color</a></td>
+	<td class="summary">a lookup table for converting blit values into color numbers.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#to_blit">to_blit</a></td>
+	<td class="summary">a lookup table converting color numbers to blit values.</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "draw_box_tex"></a>
+    <strong>draw_box_tex (terminal, texture, x, y, width, height[, bg[, fg[, offsetx[, offsety[, cache]]]]])</strong>
+    </dt>
+    <dd>
+    draws a box from a given texture on the screen
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">terminal</span>
+            <span class="types"><span class="type">term_object</span></span>
+         the terminal to draw the box on
+        </li>
+        <li><span class="parameter">texture</span>
+            <span class="types"><span class="type">gui.texture</span></span>
+         the texture to draw
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position to draw the box at
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position to draw the box at
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         the width of the drawn sprite
+        </li>
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">number</span></span>
+         the height of the drawn sprite
+        </li>
+        <li><span class="parameter">bg</span>
+            <span class="types"><span class="type">number</span></span>
+         the background color to draw empty pixels with
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">fg</span>
+            <span class="types"><span class="type">number</span></span>
+         the foreground color to draw empty pixels with
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">offsetx</span>
+            <span class="types"><span class="type">number</span></span>
+         the x offset to draw the sprite at
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">offsety</span>
+            <span class="types"><span class="type">number</span></span>
+         the y offset to draw the sprite at
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">cache</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the cache to store loaded sprites. can lead to massive performance increase. see <a href="../modules/guih.main_ui.html#texture_cache">guih.main_ui.texture_cache</a>
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get_pixel"></a>
+    <strong>get_pixel (x, y, texture, fill_empty)</strong>
+    </dt>
+    <dd>
+    reads a pixel from an texture
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the pixel
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the pixel
+        </li>
+        <li><span class="parameter">texture</span>
+            <span class="types"><span class="type">guih.texture</span></span>
+         the texture to read from
+        </li>
+        <li><span class="parameter">fill_empty</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the empty pixel should get set to their nearest neighbor
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        the resulting pixel table. properties: <a href="../modules/guih.lib.graphic.html#pixel">graphic.pixel</a>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "build_drawing_char"></a>
+    <strong>build_drawing_char (tbl[, mode])</strong>
+    </dt>
+    <dd>
+    creates a drawing character out of a table with 6 color values
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tbl</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         the table with 6 values
+        </li>
+        <li><span class="parameter">mode</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the overflow colors should be filled with the first most common or the second most common color (default: most)
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        the resulting character</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the resulting foreground color</li>
+        <li>
+           <span class="types"><span class="type">number</span></span>
+        the resulting background color</li>
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "pixel"></a>
+    <strong>pixel</strong>
+    </dt>
+    <dd>
+    the simple pixel table properties
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">symbol</span>
+         the symbol stored at this pixel
+        </li>
+        <li><span class="parameter">text_color</span>
+         the color of the text
+        </li>
+        <li><span class="parameter">background_color</span>
+         the color of the background of this pixel
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "to_color"></a>
+    <strong>to_color</strong>
+    </dt>
+    <dd>
+    a lookup table for converting blit values into color numbers.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "to_blit"></a>
+    <strong>to_blit</strong>
+    </dt>
+    <dd>
+    a lookup table converting color numbers to blit values.
+
+
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 21:50:46 </i>
+<i style="float:right;">Last updated 2022-06-16 20:49:14 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

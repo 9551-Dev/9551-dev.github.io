@@ -31,12 +31,16 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
 
 
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/setup.html">setup</a></li>
-  <li><a href="../modules/guih.api.html">guih.api</a></li>
+  <li><a href="../modules/guih.html">guih</a></li>
   <li><a href="../modules/guih.main_ui.html">guih.main_ui</a></li>
   <li><a href="../modules/guides.html">guides</a></li>
   <li><a href="../modules/objects.html">objects</a></li>
@@ -45,6 +49,7 @@
   <li><a href="../modules/presets.html">presets</a></li>
   <li><a href="../modules/guih.guide.OOP.html">guih.guide.OOP</a></li>
   <li><a href="../modules/guih.guide.accessing_gui_elements.html">guih.guide.accessing_gui_elements</a></li>
+  <li><a href="../modules/guih.guide.multiple_files.html">guih.guide.multiple_files</a></li>
   <li><a href="../modules/guih.guide.sprites.html">guih.guide.sprites</a></li>
   <li><a href="../modules/guih.lib.algo.html">guih.lib.algo</a></li>
   <li><a href="../modules/guih.lib.blbfor.html">guih.lib.blbfor</a></li>
@@ -82,22 +87,442 @@
 <div id="content">
 
 <h1>Module <code>guih.lib.pixelbox</code></h1>
-<p>Drawing chararacter utilities to make precisiond drawing easier</p>
+<p>Drawing chararacter utilities to make precision drawing easier</p>
 <p></p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (terminal[, background[, existing]])</a></td>
+	<td class="summary">creates a new pixelbox canvas in an term object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:push_updates">canvas:push_updates ()</a></td>
+	<td class="summary">procceses the canvas and pushes the updates into the draw buffer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:draw">canvas:draw ()</a></td>
+	<td class="summary">draws the current canvas to the screen from the draw buffer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:clear">canvas:clear (background)</a></td>
+	<td class="summary">clears the canvas with set background color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:get_pixel">canvas:get_pixel (x, y)</a></td>
+	<td class="summary">reads a pixel from a specific cordinate in the canvas.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:set_pixel">canvas:set_pixel (x, y, color[, the])</a></td>
+	<td class="summary">writes a pixel to the canvas with a set color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:set_box">canvas:set_box (start_x, start_y, end_x, end_y, color)</a></td>
+	<td class="summary">draws a box between 2 sets of cordinates</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:set_ellipse">canvas:set_ellipse (x, y, radius_x, radius_y, color[, filled[, thickness]])</a></td>
+	<td class="summary">draws an ellipse ellipse with set vertical and horizonal radius</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:set_circle">canvas:set_circle (x, y, radius, color[, filled[, thickness]])</a></td>
+	<td class="summary">draws an circle with set radius</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:set_triangle">canvas:set_triangle (x1, y1, x2, y2, x3, y3, color[, filled[, thickness]])</a></td>
+	<td class="summary">draws a triangle from 3 sets of points</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#canvas:set_line">canvas:set_line (x1, y1, x2, y2, color[, thickness])</a></td>
+	<td class="summary">draws a line between 2 points</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (terminal[, background[, existing]])</strong>
+    </dt>
+    <dd>
+    creates a new pixelbox canvas in an term object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">terminal</span>
+            <span class="types"><span class="type">terminal</span></span>
+         the terminal to draw the canvas on
+        </li>
+        <li><span class="parameter">background</span>
+            <span class="types"><span class="type">number</span></span>
+         the background color to fill the new canvas with
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">existing</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         have the new canvas be made from an existing one
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:push_updates"></a>
+    <strong>canvas:push_updates ()</strong>
+    </dt>
+    <dd>
+    procceses the canvas and pushes the updates into the draw buffer
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:draw"></a>
+    <strong>canvas:draw ()</strong>
+    </dt>
+    <dd>
+    draws the current canvas to the screen from the draw buffer
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:clear"></a>
+    <strong>canvas:clear (background)</strong>
+    </dt>
+    <dd>
+    clears the canvas with set background color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">background</span>
+            <span class="types"><span class="type">number</span></span>
+         color to fill the canvas with
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:get_pixel"></a>
+    <strong>canvas:get_pixel (x, y)</strong>
+    </dt>
+    <dd>
+    reads a pixel from a specific cordinate in the canvas.  not the draw buffer
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the pixel
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the pixel
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        the color of the pixel
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:set_pixel"></a>
+    <strong>canvas:set_pixel (x, y, color[, the])</strong>
+    </dt>
+    <dd>
+    writes a pixel to the canvas with a set color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the pixel
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the pixel
+        </li>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">number</span></span>
+         the color to write to the pixel
+        </li>
+        <li><span class="parameter">the</span>
+            <span class="types"><span class="type">thickness</span></span>
+         thickness of the pixel
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:set_box"></a>
+    <strong>canvas:set_box (start_x, start_y, end_x, end_y, color)</strong>
+    </dt>
+    <dd>
+    draws a box between 2 sets of cordinates
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start_x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position for the start of the rectangle
+        </li>
+        <li><span class="parameter">start_y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position for the start of the rectangle
+        </li>
+        <li><span class="parameter">end_x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position for the end of the rectangle
+        </li>
+        <li><span class="parameter">end_y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position for the end of the rectangle
+        </li>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">number</span></span>
+         the color to draw the rectangle with
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:set_ellipse"></a>
+    <strong>canvas:set_ellipse (x, y, radius_x, radius_y, color[, filled[, thickness]])</strong>
+    </dt>
+    <dd>
+    draws an ellipse ellipse with set vertical and horizonal radius
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the center of the ellipse
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the center of the ellipse
+        </li>
+        <li><span class="parameter">radius_x</span>
+            <span class="types"><span class="type">number</span></span>
+         the horizontal radius of the ellipse
+        </li>
+        <li><span class="parameter">radius_y</span>
+            <span class="types"><span class="type">number</span></span>
+         the vertical radius of the ellipse
+        </li>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">number</span></span>
+         the color to draw the ellipse with
+        </li>
+        <li><span class="parameter">filled</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the ellipse should be filled or not
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">thickness</span>
+            <span class="types"><span class="type">number</span></span>
+         the thickness of the ellipses points
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:set_circle"></a>
+    <strong>canvas:set_circle (x, y, radius, color[, filled[, thickness]])</strong>
+    </dt>
+    <dd>
+    draws an circle with set radius
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the center of the circle
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the center of the circle
+        </li>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">number</span></span>
+         the radius of the circle
+        </li>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">number</span></span>
+         the color to draw the circle with
+        </li>
+        <li><span class="parameter">filled</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the circle should be filled or not
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">thickness</span>
+            <span class="types"><span class="type">number</span></span>
+         the thickness of the circle points
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:set_triangle"></a>
+    <strong>canvas:set_triangle (x1, y1, x2, y2, x3, y3, color[, filled[, thickness]])</strong>
+    </dt>
+    <dd>
+    draws a triangle from 3 sets of points
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x1</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the first point
+        </li>
+        <li><span class="parameter">y1</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the first point
+        </li>
+        <li><span class="parameter">x2</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the second point
+        </li>
+        <li><span class="parameter">y2</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the second point
+        </li>
+        <li><span class="parameter">x3</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the third point
+        </li>
+        <li><span class="parameter">y3</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the third point
+        </li>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">number</span></span>
+         the color to draw the triangle with
+        </li>
+        <li><span class="parameter">filled</span>
+            <span class="types"><span class="type">boolean</span></span>
+         whether the triangle should be filled or not
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">thickness</span>
+            <span class="types"><span class="type">number</span></span>
+         the thickness of the triangle points
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "canvas:set_line"></a>
+    <strong>canvas:set_line (x1, y1, x2, y2, color[, thickness])</strong>
+    </dt>
+    <dd>
+    draws a line between 2 points
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x1</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the first point
+        </li>
+        <li><span class="parameter">y1</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the first point
+        </li>
+        <li><span class="parameter">x2</span>
+            <span class="types"><span class="type">number</span></span>
+         the x position of the second point
+        </li>
+        <li><span class="parameter">y2</span>
+            <span class="types"><span class="type">number</span></span>
+         the y position of the second point
+        </li>
+        <li><span class="parameter">color</span>
+            <span class="types"><span class="type">number</span></span>
+         the color to draw the line with
+        </li>
+        <li><span class="parameter">thickness</span>
+            <span class="types"><span class="type">number</span></span>
+         the thickness of the line
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2022-06-15 21:50:46 </i>
+<i style="float:right;">Last updated 2022-06-16 20:49:14 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
