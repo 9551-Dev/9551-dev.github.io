@@ -1,0 +1,12 @@
+--- showcase of how to access the gui elements using the MAIN_UI.elements table
+--
+-- this table is structured as MAIN_UI.elements.<type>.<name>
+--
+-- lets say you have a button called "my_favourite_button"
+--
+-- then to access it you would do
+--
+-- @usage
+-- local my_favourite_button = MAIN_UI.elements.button.my_favourite_button
+--
+-- @module guih.guide.accessing_gui_elements

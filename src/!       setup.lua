@@ -1,0 +1,29 @@
+--- What is GuiH
+--
+--
+-- GuiH is my Object based GuiH api including powerful graphics and multitasking support
+--
+-- to setup the api first thing you need to do is install it
+-- for development its reccomended to use this version
+-- wget run https://github.com/9551-Dev/programs/raw/main/guih_install.lua
+--
+-- as for the final resulting program when there are no errors and no need for logs
+-- i reccomend you install the single file version to save space
+-- wget https://github.com/9551-Dev/apis/raw/main/guih.lua
+--
+-- for starting out i reccomend 3 files
+-- @see guih
+-- @see guih.main_ui
+-- @see objects
+-- @see guides
+-- @see dummy_index
+--
+-- GuiH has a simple "boiler plate"
+--
+-- @usage
+-- local api = require "GuiH"
+-- local gui = api.new(term.current()) 
+-- -- add objects into gui
+-- gui.execute()
+--
+-- @module setup 

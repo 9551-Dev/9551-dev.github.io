@@ -1,0 +1,21 @@
+---showcase of how to load images and how to add images using scripts to the gui
+--
+-- to add a sprite to the gui you need to make a use of an graphic script and the GuiH graphic api
+-- first thing you need to do is load your image
+-- and then just make a simple script that will use the MAIN_UI.api.graphic.draw_box_tex function to draw it
+--
+-- you may also want to provide the bg,fg,offset_x,offset_y but those are optional
+-- also if you want a significant performance improvement give draw_box_tex the guis texture_cache
+-- which will make proccesing of images before drawing significantly faster
+--
+-- @usage
+-- local image = MAIN_UI.load_limg_image("test.limg")
+-- local graphic = MAIN_UI.api.graphic
+--
+-- MAIN_UI.new.script{
+--   graphic=function()
+--     graphic.draw_box_tex(image,gui.term,x,y,width,height,bg,fg,offset_x,offset_y,MAIN_UI.texture_cache)
+--   end
+-- }
+--
+-- @module guih.guide.sprites

@@ -1,0 +1,38 @@
+--- example of a good way to do OOP with GuiH
+-- for a good OOP with GuiH you want to make individual places in your main table for parts of the gui
+-- you also probably want a start function that will run all the code you need and run all of the functions to make the ui
+--
+-- you can find a great usage of this here: https://github.com/ascpial/cc-lock/blob/main/cc-lock/auth.lua
+--
+-- its also a good idea to have the file return the main "object" cause it makes working with multi file applications much easier !
+--
+-- @usage
+-- local api = require "GuiH"
+-- local gui = api.new(term.current())
+-- local main = {gui=gui}
+--
+-- function main:body()
+--     self.main_bg = self.gui.new.rectangle{
+--          x=5,y=5,width=15,height=8,
+--          color=colors.red,
+--          graphic_order=-math.huge
+--     }
+-- end
+--
+-- function main:prompt()
+--      self.prompt_input = self.gui.new.inputbox{
+--          x=6,y=6,width=13,
+--          background_color=colors.white,
+--          text_color=colors.black
+--      }
+-- end
+--
+-- function main:start()
+--     self:body()
+--     self:prompt()
+--     self.gui.execute()
+-- end
+--
+-- return main
+--
+-- @module guih.guide.OOP

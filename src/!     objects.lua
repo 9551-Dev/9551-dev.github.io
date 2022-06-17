@@ -1,0 +1,46 @@
+--- list of all the objects in GuiH
+--
+-- !IMPORTANT all objects have some values same you can find them here as they are not mentioned in individual objects @{guih.base_object_properties}
+--
+-- !IMPORTANT! objects have a special table for the scale and position data. if you have a button that will have x of 5 the only way to read that x is to do button.positioning.x something similiar applies to textures. if you input texture is tex_on the value will be saved in memory as texture_on !
+--
+-- general object for interactions
+-- @{object.button}
+-- @{object.switch}
+-- @{object.inputbox}
+-- @{object.scrollbox}
+--
+-- grouping objects
+-- @{object.frame}
+-- @{object.group}
+--
+-- graphical objects
+-- @{object.circle}
+-- @{object.ellipse}
+-- @{object.progressbar}
+-- @{object.rectangle}
+-- @{object.text}
+-- @{object.triangle}
+--
+-- other objects
+-- @{object.script}
+-- @{primitive.object.text}
+--
+-- All objects sorted alphabetically
+--
+-- @see object.button
+-- @see object.circle
+-- @see object.ellipse
+-- @see object.frame
+-- @see object.group
+-- @see object.inputbox
+-- @see object.progressbar
+-- @see object.rectangle
+-- @see object.script
+-- @see object.scrollbox
+-- @see object.switch
+-- @see object.text
+-- @see object.triangle
+-- @see primitive.object.text
+
+-- @module objects

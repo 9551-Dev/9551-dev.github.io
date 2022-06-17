@@ -1,0 +1,6 @@
+--- bunch of guides to simple topics around the usage of GuiH
+-- @module guides
+-- @see guih.guide.multiple_files
+-- @see guih.guide.OOP
+-- @see guih.guide.accessing_gui_elements
+-- @see guih.guide.sprites

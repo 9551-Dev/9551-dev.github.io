@@ -1,0 +1,20 @@
+--- Showcase on how to manage your gui into multiple files
+-- to manage your ui in larger applications you may want to split your gui into several files
+-- this is by far the best way to do it
+-- you can also apply the knowledge from @{guih.guide.OOP} here
+--
+-- what you wanna do is wrap your entire gui and all the definitions into a function.
+-- this function will also take in the gui object to build this files ui on
+-- so you can then easily place it into its own {object.group}
+-- you then return this function so in your main file you can require it
+-- and give it the gui that it will build the ui in
+--
+-- @usage
+-- local function my_gui(gui)
+--     -- you can use the gui object to create objects
+--     -- you can also pack these the same way we do in @{guih.guide.OOP}
+--     -- you can also use the @{guih.guide.accessing_gui_elements} guide to access the gui elements
+-- end
+-- return my_gui
+--
+-- @module guih.guide.multiple_files
