@@ -329,6 +329,16 @@ end
 function main_ui.get_blit(line,start_x,end_x)
 end
 
+--- returns the width and size of the gui
+-- @treturn number the width of the gui
+-- @treturn number the height of the gui
+function main_ui.getSize()
+end
+
+--- recalibrates to gui to the current window position
+function main_ui.calibrate()
+end
+
 --- a list of values for creating a primitive text object
 -- @table text_object_properties
 -- @field text the text this object will represted
